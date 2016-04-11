@@ -8,7 +8,7 @@ include'navigation.php';
 <html>
 
     <head>
-    	<Title>PTF</Title>
+    	<Title>Part Time Finder</Title>
      
 		
 	<!-- Bootstrap -->
@@ -101,7 +101,7 @@ include'navigation.php';
                       while($postinfo=mysqli_fetch_array($results)){
                        //display the records
                        echo "<li>".
-                            "<a class=\"postlink\" href=\"viewpost.php?post_id=".$postinfo['post_id']."\" target=\"_blank\">"
+                            "<a class=\"postlink\" href=\"viewpost.php?post_id=".$postinfo['post_id']."\">"
                             ."<span class='job-employer'>".$postinfo['employer']."</span>"
                             ."<span class ='job-title'>".$postinfo['work']."</span>"
                             ."<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>"
