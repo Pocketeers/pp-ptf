@@ -13,7 +13,7 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 <!DOCTYPE html>
 <html>
 <head>
-<title>Job Finder</title>     
+<title>Apply job</title>     
 		
 	<!-- Bootstrap -->
 	<!-- Required meta tags always come first -->

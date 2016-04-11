@@ -9,7 +9,7 @@ include'navigation.php';
 
     <head>
 	
-    	<Title>PTF</Title>
+    	<Title>View Post</Title>
      
 		
 	<!-- Bootstrap -->
