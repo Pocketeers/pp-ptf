@@ -1,5 +1,5 @@
 <?php
-include'getindex.php';
+include'getindex1.php';
 include'navigation.php';
 ?>
 
