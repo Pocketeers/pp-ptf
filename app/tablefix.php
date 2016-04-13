@@ -1,7 +1,7 @@
 <?php
 include 'dbcon.php';
 
-$sql="ALTER TABLE applicant modify column app_id int auto_increment";
+$sql="ALTER TABLE applicant change number contact varchar(13)";
 
 $query=mysqli_query($conn,$sql);
 
