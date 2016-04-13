@@ -1,14 +1,23 @@
 <?php
 include 'dbcon.php';
 
-$sql="describe applicant";
+$sql="ALTER TABLE applicant change id app_id int";
 
 $query=mysqli_query($conn,$sql);
 
-if(mysqli_num_rows($query) > 0){
-	while($row = mysqli_fetch_assoc($query)){
-		print_r($row);
+if($query){
+	echo "changes has been made :) <br>";
+
+	$sql1="describe applicant";
+	$query1=mysqli_query($conn,$sql1);
+
+	if(mysqli_num_rows($query1) > 0){
+
+		while($row = mysqli_fetch_assoc($query1)){
+			print_r($row);
+		}
 	}
+
 }else{
     echo "no luck :(";
 }
