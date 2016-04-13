@@ -1,7 +1,7 @@
 <?php
 include 'dbcon.php';
 
-$sql="ALTER TABLE applicant add column exp_details varchar(2000),  post_id int not null, status varchar(50)";
+$sql="ALTER TABLE applicant add column exp_details varchar(2000)";
 
 $query=mysqli_query($conn,$sql);
 
