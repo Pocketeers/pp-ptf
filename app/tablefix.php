@@ -1,7 +1,7 @@
 <?php
 include 'dbcon.php';
 
-$sql="ALTER TABLE applicant change id app_id int";
+$sql="ALTER TABLE applicant drop column gender";
 
 $query=mysqli_query($conn,$sql);
 
