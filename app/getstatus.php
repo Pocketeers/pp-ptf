@@ -4,17 +4,47 @@ include 'dbcon.php';
 
 if($conn){
 
-	$sql = "SELECT * FROM applicant";
+	 //set sql statement to select "user_id" record from "user" table with user session
+    $sql = "SELECT email FROM user WHERE username = '$_SESSION[user]' ";
 
-	$query = mysqli_query($conn, $sql);
+    //run sql statement with query
+    $results= mysqli_query($conn, $sql);
 
-	$appinfo = mysqli_fetch_array($query);
+    //check if record exist
+    if(mysqli_num_rows($results) > 0){
 
-	$sql1 = "SELECT * FROM post where post_id = '$appinfo[post_id]' ";
+        //loop to fetch records
+        while($userinfo=mysqli_fetch_array($results)){
 
-	$query1 = mysqli_query($conn, $sql);
+            //set record as variable
+            $useremail = $userinfo['email'];
+        }
 
-	$appinfo1 = mysqli_fetch_array($query1);
+	    //set sql statement to select all record from "posts" table in a descending order
+	    $sql1 = "SELECT post_id, status FROM applicant WHERE email = '$useremail' ";
+
+	    //run sql statement with query
+	    $results1= mysqli_query($conn, $sql1);
+
+		if(mysqli_num_rows($results1) > 0){
+
+		    //loop to fetch records
+	        while($appinfo=mysqli_fetch_array($results1)){
+
+	            //set record as variable
+	            $postid = $appinfo['post_id'];
+	            $status = $appinfo['status'];
+	        }
+
+	        //set sql statement to select records from "applicant" table
+		    $sql2 = "SELECT work, employer FROM posts WHERE post_id = '$postid' ";
+
+		    //run sql statement with query
+		    $results2= mysqli_query($conn, $sql2);
+
+	    }
+
+    }
 
 
 }else{

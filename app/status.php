@@ -13,7 +13,7 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 <!DOCTYPE html>
 <html>
 <head>
-<title>Apply job</title>     
+<title>My Job Status</title>     
 		
 	<!-- Bootstrap -->
 	<!-- Required meta tags always come first -->
@@ -52,29 +52,22 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 		
 		
        <div class="container">
-		<p><h2>My Status</h2></p>
+		<p><h2>My Job Status</h2></p>
 		
 		<ul>
 		<?php 
-			if(mysqli_num_rows($query) > 0){
 
-			while($appinfo){
+			if(mysqli_num_rows($results2) > 0){
 
-				if(mysqli_num_rows($query1) > 0){
+		    	//loop to fetch records
+		        while($postinfo=mysqli_fetch_array($results2)){
 
-					while($appinfo1){
+		            //set record as variable
+		            echo $postinfo['work'].", ".$postinfo['employer'].", ".$status;
+		        }
 
-					echo "<li>".$appinfo['post_id'].", ".$appinfo['']."</li>";
+		    }
 
-					}
-				}
-				
-			}
-
-			}else{
-
-					echo "error";
-				} 
 		?>
 		</ul>
 	
