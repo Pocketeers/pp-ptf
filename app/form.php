@@ -88,12 +88,12 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 			  <label class="col-sm-2">Work Experience:</label>
 			    <div class="col-sm-10">
 				  <div class="radio">
-				    <label><input type="radio" name="experience" value="yes" onclick="show('area');" required>Yes <br><textarea row="10" cols="30" name="area" placeholder="(Provide details about previous work) Example: I used to work at..." id="area" style="display:none;"></textarea></label>
+				    <label><input type="radio" name="experience" value="yes" onclick="show('area');" required> Yes <br><textarea row="10" cols="30" name="area" placeholder="(Provide details about previous work) Example: I used to work at..." id="area" style="display:none;"></textarea></label>
 				
 				  </div>
 				  <div class="radio">
 				    <label>
-					<input type="radio" name="experience" value="no" onclick="hide('area');">No 
+					<input type="radio" name="experience" value="no" onclick="hide('area');"> No 
 			        </label>
 				  </div>
 				</div>

@@ -69,10 +69,9 @@ include'navigation.php';
 			      <label for="password" class="col-sm-2 form-control-label">Password </label>
 				    <div class="col-sm-8">
 					  <input type="password" name="password" class="form-control" minlength="6" size="15" required>
+					  <span style="color:red; margin:20%;"><?php echo $msg; ?></span>
 					</div>
 				</div>
-				
-						<?php echo $msg; ?>
 						
 				<div class="form-group row">
 			      <div class="col-sm-offset-2 col-sm-10">
