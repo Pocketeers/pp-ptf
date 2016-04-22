@@ -13,7 +13,7 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Job Status</title>     
+<title>My Applications Status</title>     
 		
 	<!-- Bootstrap -->
 	<!-- Required meta tags always come first -->
@@ -52,7 +52,7 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 		
 		
        <div class="container">
-		<p><h2>My Job Status</h2></p>
+		<p><h2>My Applications Status</h2></p>
 		
 		<ul>
 		<?php 
@@ -66,6 +66,8 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 		            echo $postinfo['work'].", ".$postinfo['employer'].", ".$status;
 		        }
 
+		    }else{
+		    	echo "error";
 		    }
 
 		?>

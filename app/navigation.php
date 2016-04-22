@@ -33,8 +33,8 @@ session_start();
                         $href = "";
                         $title = "";
 
-                        $href1 = "";
-                        $title1 = "";
+                        $href1 = "status.php";
+                        $title1 = "STATUS";
                     }
                 }
             }
