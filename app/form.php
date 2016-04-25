@@ -1,6 +1,6 @@
 <?php
 //include external php file
-include'navigation.php';
+include'getnavigation.php';
 include'getform.php';
 ?>
 
@@ -38,10 +38,10 @@ function hide() { document.getElementById('area').style.display = 'none'; }
 				<a class="nav-link" href="index.php">HOME <span class="sr-only">(current)</span></a>
               </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $myadshref; ?>"><?php echo $myads ?></a>
+          <a class="nav-link" href="<?php echo $linkhref; ?>"><?php echo $linktitle ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $createhref ?>"><?php echo $create ?></a>
+          <a class="nav-link" href="<?php echo $linkhref1 ?>"><?php echo $linktitle1 ?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo $loginhref ?>"><?php echo $login ?></a>

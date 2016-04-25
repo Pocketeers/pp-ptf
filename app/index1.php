@@ -1,6 +1,6 @@
 <?php
 include'getindex1.php';
-include'navigation.php';
+include'getnavigation.php';
 ?>
 
 <!DOCTYPE html>
@@ -36,13 +36,13 @@ include'navigation.php';
 				<a class="nav-link" href="index.php">HOME <span class="sr-only">(current)</span></a>
               </li>
         <li class="nav-item active">
-          <a class="nav-link" href="<?php echo $myadshref; ?>"><?php echo $myads ?></a>
+          <a class="nav-link" href="<?php echo $linkhref; ?>"><?php echo $linktitle ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $createhref ?>"><?php echo $create ?></a>
+          <a class="nav-link" href="<?php echo $linkhref1; ?>"><?php echo $linktitle1 ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo $loginhref ?>"><?php echo $login ?></a>
+          <a class="nav-link" href="<?php echo $loginhref; ?>"><?php echo $login ?></a>
         </li>
       </ul>
     </nav>	
