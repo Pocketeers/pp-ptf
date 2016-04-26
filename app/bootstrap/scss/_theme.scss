@@ -1,3 +1,5 @@
+
+
 /* Jobs list */
 
 ul.jobs li
@@ -24,3 +26,8 @@ ul.jobs li.job-publish-date{}
 
 ul.jobs li span.myadDelete{float: right; margin-right: 10px}
 ul.jobs li span.myadEdit{float: right; margin-right: 30px}
+
+// Jumbotron
+.jumbotron.oh-hello {
+  background: url(/images/masthead-01.jpg);
+}
