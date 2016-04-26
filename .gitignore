@@ -1,5 +1,5 @@
 .DS_Store
 ../.DS_Store
 app/bower_components
-app/bootstrap/dist
-app/bootstrap/docs
+app/bootstrap/dist/**
+app/bootstrap/docs/**
