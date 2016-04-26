@@ -30,7 +30,7 @@ session_start();
                     if($type == "employer"){
 
                         //set link
-                        $href = "index1.php";
+                        $href = "myads.php";
                         
                         //set link title
                         $title = "MY ADS";
