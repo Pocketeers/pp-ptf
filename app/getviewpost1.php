@@ -9,7 +9,7 @@ session_start();
         header('Location: userlogin.php');
     }
     //set sql statement select all record form "posts" table with selected id
-    $sql = "SELECT * FROM posts WHERE post_id= $_GET[post_id]";
+    $sql = "SELECT * FROM posts WHERE post_id = $_GET[post_id]";
     
     //check if query run
     if($result=mysqli_query($conn, $sql)){

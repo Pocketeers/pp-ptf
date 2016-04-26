@@ -1,7 +1,7 @@
 <?php
 
 include'getviewpost.php';
-include'getavigation.php';
+include'getnavigation.php';
 
 ?>
 <!DOCTYPE html>
@@ -110,9 +110,15 @@ include'getavigation.php';
 			    echo "Error: ". "<br>" . $sql . "<br>" . mysqli_error($conn);
 		      }
         ?>
+
+        <div>
+        <?php include 'getlistapp.php'; ?>
+        </div>
+
 	    </div>	
 	  </div>
 	</div>
+
   
 </body>
 </html>
