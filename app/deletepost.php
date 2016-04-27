@@ -9,7 +9,7 @@ $sql = "DELETE FROM posts WHERE post_id='$_GET[post_id]'";
 //check if query run
 if($result=mysqli_query($conn,$sql)){
 	//refresh page & redirect to link
-	header("refresh:1; url=index1.php");
+	header("refresh:1; url = myads.php");
 }else{
 	//display error message
 	echo "unsucessful". "<br>". mysqli_error($conn);

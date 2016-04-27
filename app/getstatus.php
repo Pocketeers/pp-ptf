@@ -10,8 +10,10 @@ $run = mysqli_query($conn, $query);
 
 //check if record exist
 if(mysqli_num_rows($run) > 0){
+
     //loop to fetch record
     while($check = mysqli_fetch_array($run)){
+
         //set record as variable
         $type = $check['type'];
     }
@@ -19,8 +21,10 @@ if(mysqli_num_rows($run) > 0){
 
 //check if user session not exist or employee exist
 if(!isset($_SESSION['user']) OR ($type == "employer")){
+
     //redirect to link
     header('Location: index.php');
+
 }else{
 
 	if($conn){
@@ -62,6 +66,30 @@ if(!isset($_SESSION['user']) OR ($type == "employer")){
 
 			    //run sql statement with query
 			    $results2 = mysqli_query($conn, $sql2);
+
+			    if(mysqli_num_rows($results2) > 0){
+
+			    	//loop to fetch records
+			        while($postinfo=mysqli_fetch_array($results2)){
+
+			            //set record as variable
+			            echo 
+			            "<li>".
+			            "<b>Job: </b>".
+			            $postinfo['work'].
+			            " || ".
+			            "<b>Employer: </b>".
+			            $postinfo['employer'].
+			            " || ".
+			            "<b>Status: </b>".
+			            $status.
+			            "</li>";
+			        }
+
+			    }else{
+
+			    	echo "No Applications";
+			    }
 
 		    }
 

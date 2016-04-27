@@ -111,9 +111,12 @@ include'getnavigation.php';
 		      }
         ?>
 
+        <p>
         <div>
-        <?php include 'getlistapp.php'; ?>
+        <h3>Applicants:</h3>
+	        <?php include 'getlistapp.php'; ?>
         </div>
+        </p>
 
 	    </div>	
 	  </div>

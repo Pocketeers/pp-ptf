@@ -10,16 +10,45 @@ if($conn){
 
 		while($appinfo = mysqli_fetch_array($query)){
 
-			echo 
-			"<ul>
-			<li>".$appinfo['aname']." - ".$appinfo['status']." - "."<a class='btn btn-primary' href=\" #.php?post_id=".$appinfo['post_id']." \">Decline</a>"." , "."<a class='btn btn-primary' href=\" #.php?post_id=".$appinfo['post_id']." \">Accept</a></li>
-			</ul>";
+			if(($appinfo['status'] == "ACCEPTED") OR ($appinfo['status'] == "NOT ACCEPTED")){
+
+				echo 
+				"<ul>
+				<li>".
+				"<b>Name: </b>".$appinfo['aname'].
+				" || ".
+				"<b>Have Work Experience: </b>".
+				$appinfo['experience'].
+				" || ".
+				"<b>Status: </b>".$appinfo['status'].
+				"</li>
+				</ul>";
+
+			}else{
+
+				echo 
+				"<ul>
+				<li>".
+				"<b>Name: </b>".$appinfo['aname'].
+				" || ".
+				"<b>Have Work Experience: </b>".
+				$appinfo['experience'].
+				" || ".
+				"<b>Status: </b>".$appinfo['status'].
+				" <b>-</b> ".
+				"<a class='btn btn-primary' href=\" decline.php?app_id=".$appinfo['app_id']." \">Decline</a>".
+				" <b>or</b> ".
+				"<a class='btn btn-primary' href=\" accept.php?app_id=".$appinfo['app_id']." \">Accept</a>".
+				"</li>
+				</ul>";
+
+			}
 
 		}
 
 	}else{
 
-		echo "No Results";
+		echo "0 Applicant";
 	}
 
 

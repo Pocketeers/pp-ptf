@@ -1,7 +1,6 @@
 <?php
 //include external php file
 include'getnavigation.php';
-include'getstatus.php';
 ?>
 
 <!-- for the text box for work experience section -->
@@ -54,24 +53,13 @@ function hide() { document.getElementById('area').style.display = 'none'; }
        <div class="container">
 		<p><h2>My Applications Status</h2></p>
 		
-		<ul>
+		<ol>
 		<?php 
 
-			if(mysqli_num_rows($results2) > 0){
-
-		    	//loop to fetch records
-		        while($postinfo=mysqli_fetch_array($results2)){
-
-		            //set record as variable
-		            echo $postinfo['work'].", ".$postinfo['employer'].", ".$status;
-		        }
-
-		    }else{
-		    	echo "error";
-		    }
+			include 'getstatus.php';
 
 		?>
-		</ul>
+		</ol>
 	
 
 		<div class="row">	
