@@ -62,14 +62,14 @@ include'getform.php';
 					</div>
 					
 					<div class="form-group row">
-						<label for="inputname" class="col-sm-2 form-control-label"> Name:</label>
+						<label for="inputname" class="col-sm-2 form-control-label"> * Name:</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" name="aname" size="30" required></td>
 						</div>
 					</div>
 					
 					<div class="form-group row">
-						<label for="inputage" class="col-sm-2 form-control-label"> Age:</label>
+						<label for="inputage" class="col-sm-2 form-control-label"> * Age:</label>
 						<div class="col-sm-10">
 							<td><input type="number" class="form-control" name="age" min="15" max="60" required></td>
 						</div>
@@ -77,7 +77,7 @@ include'getform.php';
 					
 					
 					<div class="form-group row">
-						<label class="col-sm-2">Work Experience:</label>
+						<label class="col-sm-2">* Work Experience:</label>
 						<div class="col-sm-10">
 							<div class="radio">
 								<label><input type="radio" name="experience" value="yes" onclick="show('area');" required> Yes <br><textarea row="10" cols="30" name="area" placeholder="(Provide details about previous work) Example: I used to work at..." id="area" style="display:none;"></textarea></label>
@@ -94,20 +94,20 @@ include'getform.php';
 					<div class="form-group row">
 						<label class="col-sm-2">Attach Resume:</label>
 						<div class="col-sm-10">
-							<input type="file" class="btn btn-secondary" name="file" required>
+							<input type="file" class="btn btn-secondary" name="file">
 						</div>
 					</div>
 					
 					
 					<div class="form-group row">
-						<label for="inputphone" class="col-sm-2 form-control-label"> Phone:</label>
+						<label for="inputphone" class="col-sm-2 form-control-label"> * Phone:</label>
 						<div class="col-sm-10">
 							<input type="tel" class="form-control" name="contact" size="10" required pattern="(\+?\d[- .]*){10,11}$" required> (Format: 0123456789 / 01123456789)
 						</div>
 					</div>				  
 					
 					<div class="form-group row">
-						<label for="inputemail" class="col-sm-2 form-control-label">Email</label>
+						<label for="inputemail" class="col-sm-2 form-control-label">* Email</label>
 						<div class="col-sm-10">
 							<input type="email" class="form-control" name="email" value="<?php echo $userinfo2['email']; ?>" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"> (Ex: shahnaz@gmail.com)
 
