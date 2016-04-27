@@ -15,10 +15,12 @@ if($conn){
 				echo 
 				"<ul>
 				<li>".
+				"<a class=\"applink\" href=\"viewapp.php?app_id=".$appinfo['app_id']."\">".
 				"<b>Name: </b>".$appinfo['aname'].
 				" || ".
 				"<b>Have Work Experience: </b>".
 				$appinfo['experience'].
+				"</a>".
 				" || ".
 				"<b>Status: </b>".$appinfo['status'].
 				"</li>
@@ -29,10 +31,12 @@ if($conn){
 				echo 
 				"<ul>
 				<li>".
+				"<a class=\"applink\" href=\"viewapp.php?app_id=".$appinfo['app_id']."\">".
 				"<b>Name: </b>".$appinfo['aname'].
 				" || ".
 				"<b>Have Work Experience: </b>".
 				$appinfo['experience'].
+				"</a>".
 				" || ".
 				"<b>Status: </b>".$appinfo['status'].
 				" <b>-</b> ".
