@@ -37,8 +37,9 @@ VALUES('$_POST[work]',
 
 //check if query run
 if(mysqli_query($conn, $sql)){
+	
 	//redirect to link
-	header("Location: addmsg.html");
+	header("Location: addmsg.php");
 }
 else{
 	echo "Error: ". "<br>" . $sql . "<br>" . mysqli_error($conn);

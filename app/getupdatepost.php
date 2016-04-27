@@ -1,6 +1,7 @@
 <?php
 //include external php file
 include 'dbcon.php';
+
 //start session
 session_start();
 
@@ -12,8 +13,10 @@ $sql1 = "SELECT type FROM user WHERE username = '$_SESSION[user]' ";
 
     //check if record exist
     if(mysqli_num_rows($results1) > 0){
+
     //loop to fetch records
     while($userinfo = mysqli_fetch_array($results1)){
+
         //set record as variable
         $type = $userinfo['type'];
 
@@ -28,14 +31,19 @@ if(!isset($_SESSION['user']) OR ($type == "employee")){
 
 //check if submitBtn is not clicked
 if(!isset($_POST['submitBtn'])){
+
     //set sql statement to select all record from "posts" table with user session
     $sql = "SELECT * FROM posts WHERE post_id= $_GET[post_id]";
+
         //check if query run
         if($result=mysqli_query($conn, $sql)){
+
             //loop to fetch records
             $postinfo=mysqli_fetch_array($result);
+
             //check if post-id exist
             if($_GET['post_id'] == 0){
+
                 //redirect to link
                 header('Location: index.php');
             }
@@ -65,11 +73,15 @@ $_POST['employer']=mysqli_real_escape_string($conn, $_POST['employer']);
         `jobcat`='$_POST[jobcat]',
         `loccat`='$_POST[loccat]',
         `date_posted`='$_POST[date_posted]' WHERE post_id='$_POST[post_id]'";
+
         //check if query run
          if(mysqli_query($conn, $update)){
+
             //redirect to link
-            header('Location: index1.php'); 
+            header('Location: myads.php');
+
          }else{
+
             //display echo error
             echo "Error: ". "<br>" . $update . "<br>" . mysqli_error($conn);
          }

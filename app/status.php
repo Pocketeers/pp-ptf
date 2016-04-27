@@ -1,7 +1,6 @@
 <?php
 //include external php file
 include'getnavigation.php';
-include'getstatus.php';
 ?>
 
 <!-- for the text box for work experience section -->
@@ -46,6 +45,16 @@ include'getstatus.php';
 	<div class="container">
 		<p><h2>My Applications Status</h2></p>
 		
+<<<<<<< HEAD
+		<ol>
+		<?php 
+
+			include 'getstatus.php';
+
+		?>
+		</ol>
+	
+=======
 		<ul>
 			<?php 
 
@@ -65,6 +74,7 @@ include'getstatus.php';
 			?>
 		</ul>
 		
+>>>>>>> upstream/master
 
 		<div class="row">	
 			<div class="col-md-8">
