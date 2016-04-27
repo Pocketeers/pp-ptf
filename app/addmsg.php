@@ -7,4 +7,9 @@
 <h1>Your post has been saved!</h1>
 <p><b><i><a href="index.php">Back to home page</a></b></p>
 </body>
+
+<?php
+  include'_footer.php';
+?>
+
 </html>

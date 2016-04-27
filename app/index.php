@@ -109,14 +109,10 @@ include'getindex.php';
 
   </div>
 
-  <hr>
-  <footer>
-    <p style="text-align: center;">&copy; Part Time Finder 2015</p>
-  </footer>
-
   <?php
   //include scripts php file
   include'_scripts.php';
+  include'_footer.php';
   ?>
 
 </body>

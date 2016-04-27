@@ -17,50 +17,46 @@ $regdate = date("Y.m.d");
 
 <html>
 
-	<head>
-		<title>Register</title>
+<head>
+	<title>Register</title>
 
-		<!-- Bootstrap -->
-		<!-- Required meta tags always come first -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<?php
+  //include head php file
+	include'_head.php';
+	?>
+	
+</head>
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="css/theme.css">
-	</head>
+<body>
 
-	<body>
-
-		<!--Navigation bar -->	
-		<nav class="navbar navbar-static-top navbar-dark bg-inverse">
-			<a class="navbar-brand" href="#">Part Time Finder</a>
-			<ul class="nav navbar-nav">
-				<li class="nav-item active">
-					<a class="nav-link" href="index.php">HOME <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?php echo $linkhref; ?>"><?php echo $linktitle ?></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?php echo $linkhref1; ?>"><?php echo $linktitle1 ?></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?php echo $loginhref; ?>"><?php echo $login ?></a>
-				</li>
-			</ul>
-		</nav>
+	<!--Navigation bar -->	
+	<nav class="navbar navbar-static-top navbar-dark bg-inverse">
+		<a class="navbar-brand" href="#">Part Time Finder</a>
+		<ul class="nav navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.php">HOME <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?php echo $linkhref; ?>"><?php echo $linktitle ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?php echo $linkhref1; ?>"><?php echo $linktitle1 ?></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?php echo $loginhref; ?>"><?php echo $login ?></a>
+			</li>
+		</ul>
+	</nav>
 
 	<br>	
 
-		<div class="container">
-			<div class="row">	
-				<div class="col-md-8">
+	<div class="container">
+		<div class="row">	
+			<div class="col-md-8">
 
 				<h2>Registration Form</h2>
 
-					<form  action="" name="prereg.php" method="post">
+				<form  action="" name="prereg.php" method="post">
 
 					<div class="form-group row">
 						<label for="email" class="col-sm-2 form-control-label">Email</label>
@@ -110,7 +106,7 @@ $regdate = date("Y.m.d");
 							</div>
 						</div>
 					</div>
-					  
+					
 					<input type="hidden" name="regdate" value=<?php echo $regdate ?> readonly>
 
 					<div class="form-group row">
@@ -120,19 +116,23 @@ $regdate = date("Y.m.d");
 						</div>
 					</div>
 
-					</form>
+				</form>
 
-					<p><a href="userlogin.php">Login page</a></p>
-					<p><a href="index.php">Back to Home page </a></p>
-				</div>
+				<p><a href="userlogin.php">Login page</a></p>
+				<p><a href="index.php">Back to Home page </a></p>
 			</div>
 		</div>
-	</body>
+	</div>
 
-	<hr>
+	<?php
+  //include scripts php file
+	include'_scripts.php';
+	?>
+	
+</body>
 
-	<footer>
-		<p style="text-align: center;">&copy; Part Time Finder 2015</p>
-	</footer>
+<?php
+include'_footer.php';
+?>
 
 </html>
