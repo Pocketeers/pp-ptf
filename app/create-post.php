@@ -1,28 +1,8 @@
 <?php
-include 'dbcon.php';
-
 //for navigation bar
-include'getnavigation.php';
+include 'getnavigation.php';
+include 'getcreatepost.php';
 
-session_start();
-
-if(!isset($_SESSION['user'])){
-        header('Location: userlogin.php');
-		
-}
-
-$sql="SELECT user_id FROM user WHERE username = '$_SESSION[user]' ";
-
-    $results=mysqli_query($conn, $sql);
-
-        if(mysqli_num_rows($results) > 0){
-
-            while($userinfo=mysqli_fetch_array($results)){
-                $userid =  $userinfo['user_id'];
-            }
-        }else{
-            echo "Error: some codes are not correctly placed or one of the code spelling is wrong or does not match, please check back your codes";
-        }
 ?>
 <html>
 <head>

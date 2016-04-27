@@ -20,6 +20,7 @@ session_start();
 
         }
     }
+    
     //set sql statement to select all record from "posts" table with selected "id"
     $sql = "SELECT * FROM posts WHERE post_id= $_GET[post_id]";
 
