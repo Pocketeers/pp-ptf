@@ -3,5 +3,5 @@
 app/bower_components
 app/bootstrap/dist
 app/bootstrap/docs
-app/bootstrap/js
+app/bootstrap/js/dist
 app/bootstrap/node_modules
