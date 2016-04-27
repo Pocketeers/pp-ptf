@@ -45,7 +45,6 @@ include'getnavigation.php';
 	<div class="container">
 		<p><h2>My Applications Status</h2></p>
 		
-<<<<<<< HEAD
 		<ol>
 		<?php 
 
@@ -53,28 +52,6 @@ include'getnavigation.php';
 
 		?>
 		</ol>
-	
-=======
-		<ul>
-			<?php 
-
-			if(mysqli_num_rows($results2) > 0){
-
-		    	//loop to fetch records
-				while($postinfo=mysqli_fetch_array($results2)){
-
-		            //set record as variable
-					echo $postinfo['work'].", ".$postinfo['employer'].", ".$status;
-				}
-
-			}else{
-				echo "error";
-			}
-
-			?>
-		</ul>
-		
->>>>>>> upstream/master
 
 		<div class="row">	
 			<div class="col-md-8">
