@@ -52,7 +52,7 @@ include'getform.php';
 				
 				
 				
-				<form  action="send.php" name="myForm" method="Post" enctype="multipart/form-data">
+				<form  action="sendemail.php" name="myForm" method="Post" enctype="multipart/form-data">
 					
 					<div class="form-group row">
 						<label for="inputto" class="col-sm-2 form-control-label">To</label>
