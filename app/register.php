@@ -1,4 +1,4 @@
-<?php
+n<?php
 //include php external file
 include 'dbcon.php';
 //start the session

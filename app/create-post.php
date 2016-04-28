@@ -50,7 +50,7 @@ include 'getcreatepost.php';
         <!-- Gets today's date -->			  
         <?php
         date_default_timezone_set("Asia/Kuala_Lumpur");
-        $date = date("F j, Y");
+        $date = date("Y,m,j H:i:s");
         ?>
         
         <div class="form-group row">
@@ -71,7 +71,23 @@ include 'getcreatepost.php';
         <label for="salary" class="col-sm-2 form-control-label">Salary:
           RM</label>
           <div class="col-sm-8">
-            <input name="salary" class="form-control" type="number" required> (Per Hour)
+            <input name="salary" class="form-control" min="1" type="number" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2">Salary Rate:</label>
+          <div class="col-sm-10">
+            <div class="radio">
+              <label>
+                <input type="radio" name="rate" value="hour" required> Per Hour
+              </label>  
+            </div>
+            <div class="radio">
+              <label>             
+                <input type="radio" name="rate" value="month"> Per Month
+              </label>
+            </div>
           </div>
         </div>
         

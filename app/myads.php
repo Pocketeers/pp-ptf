@@ -1,5 +1,4 @@
 <?php
-include'getindex1.php';
 include'getnavigation.php';
 ?>
 
@@ -46,34 +45,9 @@ include'getnavigation.php';
     <ul class='jobs list-inline'> 
      
       <?php
-      if(mysqli_num_rows($results) > 0){
-        while($postinfo=mysqli_fetch_array($results)){
-          
-          echo "<li>".
-          "<a class=\"postlink\" href=\"viewpost1.php?post_id=".$postinfo['post_id']."\">"
-          ."<span class='job-employer'>".$postinfo['employer'].
-          "</span>"
-          ."<span class='job-title'>".$postinfo['work']."</span>"
-          ."<span class = 'job-salary'>RM" .$postinfo['salary'].
-          "</span>"
-          ."<span class = 'job-publish-date'>". $postinfo['date_posted']."</span>"
-          ."</a>";
-          
-          
 
-                        //Delete & Edit section; "\" --> escape character 
-						//Inline CSS styling added here!
-          
-          echo "<span class='myadDelete'><a class='btn btn-danger' href=\" delmessage.php?post_id=".$postinfo['post_id']." \">Delete</a></span>";
-          
-          echo "<span class='myadEdit'><a class='btn btn-secondary' href=\" updatepost.php?post_id=".$postinfo['post_id']." \">Edit</a></span>";
-          
-          echo "</li>";
-                        //<a href=\"viewpost.php?id=".$postinfo['id']."\">
-        }
-      }else{
-        echo "0 results" ;
-      }
+      include'getmyads.php';
+
       ?>
     </ul>
   </div>

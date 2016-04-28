@@ -1,6 +1,7 @@
 <?php
 //include external php file
 include 'dbcon.php';
+
 //start user session
 session_start();
 
