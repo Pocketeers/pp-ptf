@@ -1,4 +1,4 @@
-<?php
+n<?php
 //include php external file
 include 'dbcon.php';
 //start the session
@@ -68,7 +68,7 @@ if(!isset($_POST['email']) && !isset($_POST['username']) && !isset($_POST['passw
 			//check if query run
 			if(mysqli_query($conn, $sql)){
 				//redirect to link
-				header("Location: regmsg.html");
+				header("Location: regmsg.php");
 			}else{
 				//display sql error message
 				echo "Error: ". "<br>" . $sql . "<br>" . mysqli_error($conn);

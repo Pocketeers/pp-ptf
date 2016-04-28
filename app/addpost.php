@@ -23,7 +23,9 @@ $sql="INSERT INTO posts(
 	jobcat,
 	loccat,
 	date_posted,
-	user_id) 
+	user_id,
+	salary_rate,
+	post_status) 
 VALUES('$_POST[work]',
 	'$_POST[employer]',
 	'$_POST[salary]',
@@ -33,7 +35,9 @@ VALUES('$_POST[work]',
 	'$_POST[jobcat]',
 	'$_POST[loccat]',
 	'$_POST[date_posted]',
-	'$_POST[userid]')";
+	'$_POST[userid]',
+	'$_POST[rate]',
+	'published')";
 
 //check if query run
 if(mysqli_query($conn, $sql)){

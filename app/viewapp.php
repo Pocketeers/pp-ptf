@@ -60,7 +60,7 @@ include'getnavigation.php';
       </div>
       
       
-      <h3> Posted on 
+      <h3>
        <span class="app-age">Age: <?php echo $appinfo['age']; ?> </span>
      </h3>
      
@@ -78,7 +78,7 @@ include'getnavigation.php';
     </div>
 
      <div class="app-contact">
-      No.: <?php echo $appinfo['contact']; ?>
+      Contact No. : <?php echo $appinfo['contact']; ?>
     </div>
     
     <div class="app-exp">
