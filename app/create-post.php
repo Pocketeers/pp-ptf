@@ -1,6 +1,7 @@
 <?php
 //for navigation bar
 include 'getnavigation.php';
+include 'restrict.php';
 include 'getcreatepost.php';
 
 ?>
@@ -77,17 +78,12 @@ include 'getcreatepost.php';
 
         <div class="form-group row">
             <label class="col-sm-2">Salary Rate:</label>
-          <div class="col-sm-10">
-            <div class="radio">
-              <label>
-                <input type="radio" name="rate" value="hour" required> Per Hour
-              </label>  
-            </div>
-            <div class="radio">
-              <label>             
-                <input type="radio" name="rate" value="month"> Per Month
-              </label>
-            </div>
+            <div class="col-sm-8">
+            <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
+            <select class="form-control" name="loccat">
+              <option value="hour">Per Hour</option>
+              <option value="month">Per Month</option>
+            </select>
           </div>
         </div>
         

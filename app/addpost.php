@@ -3,6 +3,7 @@
 include 'dbcon.php';
 //start user session
 session_start();
+include 'restrict.php';
 
 if($conn){
 //declare $_POST['variable'] as variable that can escape inputed values
@@ -44,17 +45,13 @@ if(mysqli_query($conn, $sql)){
 	
 	//redirect to link
 	header("Location: addmsg.php");
-}
-else{
+	
+}else{
+
+	header("Refresh:5; Location: index.php");
 	echo "Error: ". "<br>" . $sql . "<br>" . mysqli_error($conn);
 }
 //close sql queries
 mysqli_close($conn);
 }
 ?>
-<html>
-<head>
-    <Title>Add Post</Title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-</head>
-</html>

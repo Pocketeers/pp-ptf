@@ -1,10 +1,6 @@
 <?php
-
 //for navigation bar
 include'getnavigation.php';
-
-//include external php file
-include'dbcon.php';
 include'register.php';
 
 //set local timezone

@@ -21,12 +21,19 @@ if($conn){
 
 			header("Location: viewpost1.php?post_id=$id");
 
+			//close sql queries
+			mysqli_close($conn);
+
 		}
 		
 	}else{
 
 		echo "Not Successful";
+		header("Refresh:5; Location: index.php");
 	}
 
+}else{
+
+	header("Location: index.php");
 }
 ?>

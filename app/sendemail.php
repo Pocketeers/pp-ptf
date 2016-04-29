@@ -5,6 +5,24 @@ include 'dbcon.php';
 //start user session
 session_start();
 
+//set sql statement to select "type" record from "user" table with user session
+$check = "SELECT type FROM user WHERE username = '$_SESSION[user]' ";
+
+//run sql statement with query
+$confirm = mysqli_query($conn, $check);
+
+//check if record exist
+if(mysqli_num_rows($confirm) > 0){
+
+    //loop to fetch record
+    while($user = mysqli_fetch_array($confirm)){
+      
+        //set record as variable
+        $type = $user['type'];
+    }
+}
+
+
 require_once('./vendor/autoload.php');
 use Postmark\PostmarkClient;
 use Postmark\Models\PostmarkException;
@@ -28,8 +46,7 @@ use Postmark\Models\PostmarkAttachment;
 			"Contact: ".$_POST['contact']."<br><br>".
 			"Email: ".$_POST['email']."<br><br>".
 			"(Attachments is provided within the email)"."<br><br>".
-			"<a href='https://www.google.com/' target='_blank'>google</a>",
-		    NULL, true, NULL, NULL, NULL, NULL, [$attachment]
+			"<a href='https://www.google.com/' target='_blank'>google</a>"
 		);
 
 		}catch(PostmarkException $ex){

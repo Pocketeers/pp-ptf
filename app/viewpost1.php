@@ -1,7 +1,7 @@
 <?php
-
-include'getviewpost.php';
 include'getnavigation.php';
+include'restrict.php';
+include'getviewpost.php';
 
 ?>
 <!DOCTYPE html>

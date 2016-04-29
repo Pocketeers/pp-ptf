@@ -1,5 +1,8 @@
 <?php 
+
 include 'getdelmessage.php';
+include 'restrict.php';
+
 ?>
 <html>
 	<head>

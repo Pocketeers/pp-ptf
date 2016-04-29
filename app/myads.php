@@ -1,5 +1,6 @@
 <?php
 include'getnavigation.php';
+include'restrict.php';
 ?>
 
 <!DOCTYPE html>

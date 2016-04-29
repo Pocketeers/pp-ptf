@@ -1,8 +1,8 @@
 <?php
-include'getupdatepost.php';
-
-//for navigation bar
+//include external file
 include'getnavigation.php';
+include'restrict.php';
+include'getupdatepost.php';
 
 ?>
 
@@ -67,9 +67,21 @@ include'getnavigation.php';
                   <label for="salary" class="col-sm-2 form-control-label">Salary:
                 RM</label>
 				    <div class="col-sm-8">
-                      <input required name="salary" class="form-control" type="number" value="<?php echo $postinfo['salary']; ?>"> (per hour)
+                      <input required name="salary" class="form-control" min="1" type="number" value="<?php echo $postinfo['salary']; ?>">
 					</div>
 				</div>
+
+        <div class="form-group row">
+            <label class="col-sm-2">Salary Rate:</label>
+            <div class="col-sm-8">
+            <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
+            <select class="form-control" name="loccat">
+            <option value="<?php echo $postinfo['salary_rate']; ?>">Per <?php echo $postinfo['salary_rate']; ?></option>
+              <option value="hour">Per hour</option>
+              <option value="month">Per month</option>
+            </select>
+          </div>
+        </div>
         
                 <div class="form-group row">
                   <label for="address" class="col-sm-2 form-control-label">Address</label>
