@@ -1,7 +1,7 @@
 .DS_Store
 ../.DS_Store
-app/bower_components
-app/bootstrap/dist
-app/bootstrap/docs
-app/bootstrap/js/dist
-app/bootstrap/node_modules
+bower_components
+bootstrap/dist
+bootstrap/docs
+bootstrap/js/dist
+bootstrap/node_modules
