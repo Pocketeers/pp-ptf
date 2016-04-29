@@ -1,7 +1,9 @@
 <?php
 //include external php file
-include'getviewapp.php';
 include'getnavigation.php';
+include'restrict.php';
+include'getviewapp.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -89,8 +91,6 @@ include'getnavigation.php';
     <div class="app-exp-detail">
       Details About Work Experience: <?php echo $appinfo['exp_details']; ?>
     </div>
-    
-  <hr>
 
 <?php
   //include scripts php file

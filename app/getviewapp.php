@@ -30,16 +30,6 @@ session_start();
         //set fetch record as variable
         $appinfo=mysqli_fetch_array($result);
 
-        //check if session or employee exist
-        if((!isset($_SESSION['user'])) OR ($type == "employee")){
-            
-           
-
-        }else{
-
-            $apply = "<td colspan='2'></td>";
-        }
-
     }else{
 
         echo "Error: ". "<br>" . $sql . "<br>" . mysqli_error($conn);
