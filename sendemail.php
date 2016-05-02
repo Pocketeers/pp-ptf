@@ -9,17 +9,26 @@ session_start();
 $check = "SELECT type FROM user WHERE username = '$_SESSION[user]' ";
 
 //run sql statement with query
-$confirm = mysqli_query($conn, $check);
+if($confirm = mysqli_query($conn, $check)){
 
-//check if record exist
-if(mysqli_num_rows($confirm) > 0){
+	//check if record exist
+	if(mysqli_num_rows($confirm) > 0){
 
-    //loop to fetch record
-    while($user = mysqli_fetch_array($confirm)){
-      
-        //set record as variable
-        $type = $user['type'];
-    }
+	    //loop to fetch record
+	    while($user = mysqli_fetch_array($confirm)){
+	      
+	        //set record as variable
+	        $type = $user['type'];
+
+	        if($type == "employer"){
+
+	        	header("Location: index.php");
+	        }
+	    }
+	}
+
+}else{
+
 }
 
 
@@ -32,7 +41,7 @@ use Postmark\Models\PostmarkAttachment;
 		// Example request
 		$client = new PostmarkClient("f5662a2d-8885-4cd1-b0b2-65b084216b3a");
 
-		$attachment = PostmarkAttachment::fromRawData("attachment content", $_POST['file'], "text/plain");
+		$attachment = PostmarkAttachment::fromFile(dirname(__FILE__) .  '/resume.txt', "Resume.txt", "text/plain");
 
 		$sendResult = $client->sendEmail(
 		  "farid@pocketpixel.com",
@@ -45,8 +54,9 @@ use Postmark\Models\PostmarkAttachment;
 			"Experience About Previous Jobs: ".$_POST['area']."<br><br>".
 			"Contact: ".$_POST['contact']."<br><br>".
 			"Email: ".$_POST['email']."<br><br>".
-			"(Attachments is provided within the email)"."<br><br>".
-			"<a href='https://www.google.com/' target='_blank'>google</a>"
+			"(Attachments is provided within the email)"."<br><br>",
+			"Attachement body",
+		    NULL, true, NULL, NULL, NULL, NULL, [$attachment]
 		);
 
 		}catch(PostmarkException $ex){
