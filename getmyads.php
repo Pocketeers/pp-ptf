@@ -28,6 +28,8 @@ include 'dbcon.php';
 
         while($postinfo=mysqli_fetch_array($results)){
           
+         $fromMYSQL = $postinfo['date_posted'];
+
           echo 
           "<li>".
           "<a class=\"postlink\" href=\"viewpost1.php?post_id=".$postinfo['post_id']."\">"
@@ -39,8 +41,6 @@ include 'dbcon.php';
           ."<span class = 'job-publish-date'>".date("d M", strtotime($fromMYSQL))."</span>"
           ."</a>";
           
-          
-
                         //Delete & Edit section; "\" --> escape character 
                         //Inline CSS styling added here!
           

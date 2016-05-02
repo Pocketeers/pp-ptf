@@ -1,31 +1,66 @@
-
-
 /* Jobs list */
 .jobs {
 
+
 	li {
 			border-bottom: 1px solid rgba(0, 0, 0, 0.13);
-			padding: 10px 0;
+			/*.highlight{background:#FFF79F;}*/
+			
 		}
 
 	.job-employer, .job-title, .job-category, .job-salary, .job-publish-date{
-	margin-right: 5px;
+ 	   padding: 8px; display: inline-block;
 	}
 
-	.job-employer{}
-	.job-title{}
+	.myadDelete{float: right; margin-right: 10px}
+	.myadEdit{float: right; margin-right: 30px}
+
+	.job-employer{color:black; font-weight: bold; width: 25%;}
+	.job-title{color:8D2CFF;text-decoration: underline; width: 20%;}
 	.job-category{}
-	.job-salary{}
-	.job-publish-date{}
+	.job-salary{color:black; font-weight: bold;}
+	.job-publish-date{color:#B5B5B5; float:right;}
+
+
 }
 
-
-ul.jobs li span.myadDelete{float: right; margin-right: 10px}
-ul.jobs li span.myadEdit{float: right; margin-right: 30px}
 
 // Jumbotron
 .jumbotron.oh-hello {
   background: url(/images/masthead-01.jpg);
-  background-size: cover;
+   background-repeat:no-repeat;
+   background-size: cover;
+
   color: white;
 }
+
+h5{text-align: center;
+   color: #8D2CFF;
+   padding-bottom: 10px;}
+
+hr{border-width: 2px;
+   background-color: #8D2CFF}
+
+/*search bar*/
+
+#imaginary_container{
+    margin-top:20%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+/* search bar */
+
+
+
+

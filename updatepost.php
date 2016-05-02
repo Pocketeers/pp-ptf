@@ -15,6 +15,8 @@ include'getupdatepost.php';
   //include head php file
   include'_head.php';
  ?>
+
+     <link rel="stylesheet" href="gizmos/voog/editor.css" />
 		
 </head>
 <body>
@@ -90,46 +92,83 @@ include'getupdatepost.php';
                     <textarea required rows="7" cols="40" maxlength="2000" class="form-control" name="location"><?php echo $postinfo['location']; ?></textarea>
 					</div>
 				</div>
+
+       <!--editor-->
+  <div class="foreditor">
+    <div class="ewrapper" contentEditable="false">
+      <div class="toolbar">
+    <!-- 
+    <div class="editable" ***important>
+    --> 
+
+        <div class="form-group row">
+        <label for="scope" class="col-sm-2 form-control-label">Scope of Work</label>
+          <div class="col-sm-8">
+            <div class="block">
+            <a data-wysihtml5-command="bold" title="CTRL+B">bold</a>
+            <a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
+            <a data-wysihtml5-command="insertUnorderedList">&bull; List</a>
+            <a data-wysihtml5-command="insertOrderedList">1. List</a>
+            </div>
+            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="scope"><?php echo $postinfo['scope']; ?></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
         
-                <div class="form-group row">
-                  <label for="scope" class="col-sm-2 form-control-label">Scope of Work</label>
-				    <div class="col-sm-8">
-                      <textarea rows="7" cols="40" maxlength="2000" class="form-control" name="scope"><?php echo $postinfo['scope']; ?></textarea>
-					</div>
-				</div>
-        
-                <div class="form-group row">
-                  <label for="addinfo" class="col-sm-2 form-control-label">Additional Info</label>
-				    <div class="col-sm-8">
-                      <textarea rows="7" cols="40" maxlength="2000" class="form-control" name="addinfo"><?php echo $postinfo['addinfo']; ?>
-					  </textarea>
-					</div>
-				</div>
-        
-                <div class="form-group row">
-                  <label for="jobcat" class="col-sm-2 form-control-label">Job Category</label>
-				    <div class="col-sm-8">
-            <!-- Dropdown list for category -->
-                     <select class="form-control" name="jobcat">
-	                    <option value="<?php echo $postinfo['jobcat']; ?>" selected><?php echo $postinfo['jobcat']; ?></option>
-	                    <option values="Services">Services</option>
-	                   <option values="Food">Food</option>
-                     </select>
-                    </div>       
-	            </div>
+
+ <!--editor-->
+  <div class="foreditor">
+    <div class="ewrapper" contentEditable="false">
+      <div class="toolbar">
+    <!-- 
+    toolbar
+    <div class="editable" ***important>
+    -->   
+        <div class="form-group row">
+          <label for="addinfo" class="col-sm-2 form-control-label">Additional Info</label>
+          <div class="col-sm-8">
+            <div class="block">
+            <a data-wysihtml5-command="bold" title="CTRL+B">bold</a>
+            <a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
+
+            <a data-wysihtml5-command="insertUnorderedList">&bull; List</a>
+            <a data-wysihtml5-command="insertOrderedList">1. List</a>
+            </div>
+
+       <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="addinfo"><?php echo $postinfo['addinfo']; ?>
+      </textarea>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="jobcat" class="col-sm-2 form-control-label">Job Category</label>
+    <div class="col-sm-8">
+      <!-- Dropdown list for category -->
+      <select class="form-control" name="jobcat">
+       <option value="<?php echo $postinfo['jobcat']; ?>" selected><?php echo $postinfo['jobcat']; ?></option>
+       <option values="Services">Services</option>
+       <option values="Food">Food</option>
+     </select>
+   </div>       
+ </div>
 	   
-                <div class="form-group row">
-                  <label for="location" class="col-sm-2 form-control-label">Location Category</label>
-				    <div class="col-sm-8">
-            <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-                      <select class="form-control" name="loccat">
-                       <option value="<?php echo $postinfo['loccat']; ?>"><?php echo $postinfo['loccat']; ?></option>
-                        <option value="Kuala Lumpur">Kuala Lumpur</option>
-                        <option value="Selangor">Selangor</option>
-                      </select>
-                    </div>
-				</div>
-      
+ <div class="form-group row">
+  <label for="location" class="col-sm-2 form-control-label">Location Category</label>
+  <div class="col-sm-8">
+    <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
+    <select class="form-control" name="loccat">
+     <option value="<?php echo $postinfo['loccat']; ?>"><?php echo $postinfo['loccat']; ?></option>
+     <option value="Kuala Lumpur">Kuala Lumpur</option>
+     <option value="Selangor">Selangor</option>
+   </select>
+ </div>
+</div>
+
                 <div class="form-group row">
                   <label for="employer" class="col-sm-2 form-control-label">Date Post </label>
 				    <div class="col-sm-8">
@@ -156,6 +195,32 @@ include'getupdatepost.php';
   include'_scripts.php';
   include'_footer.php';
   ?>
+
+     <script src="jquery.1.10.2.js" type="text/javascript" charset="utf-8"></script>
+
+   <script src="gizmos/voog/wysihtml-toolbar.min.js"></script>
+   <script src="gizmos/voog/advanced_and_extended.js"></script>
+
+<script>
+var editors = [];
+
+  $('.ewrapper').each(function(idx, wrapper) {
+    var e = new wysihtml5.Editor($(wrapper).find('.editable').get(0), {
+      toolbar:        $(wrapper).find('.toolbar').get(0),
+      parserRules:    wysihtml5ParserRules,
+      pasteParserRulesets: wysihtml5ParserPasteRulesets
+      //showToolbarAfterInit: false
+    });
+    editors.push(e);
+    
+    e.on("showSource", function() {
+      alert(e.getValue(true));
+    });
+    
+  });
+  
+</script>
+
 
 </body>
 </html>

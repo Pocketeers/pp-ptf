@@ -33,45 +33,45 @@ include'getnavigation.php';
     </ul>
   </nav>
 
-  <div class="jumbotron oh-hello">
+<div class="jumbotron oh-hello">
     <div class="container">
-      <h1 class="display-3">Part Time Finder</h1>
-      <p>Helps connect the ones looking for part-time jobs with the right people! </p>
-      <p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
-      </p>
+      <h1 class="display-3"></h1>
     </div>
   </div>
 
 
 
+
   <div class="middlebody">
 
-    <br>
+     <p>
+      <h5> Available Jobs </h5>
+    </p>
+
+    <div class="container">
 
     <!-- Search bar -->
     <form action="index.php" method="post">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="input-group">
-              <input type="text" name="search" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button name ="submit" class="btn btn-default" type="submit">Search</button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
         </div>
-      </div>
+  </div>
+</div>
     </form>
 
     <br>
-
-    <!-- start of table -->
-    <div class="container">
-      <h2 style="text-align: center;"> Available Jobs </h2>
-
-      <br>
+    <hr>
 
       <ul class='jobs list-inline'>
         <?php

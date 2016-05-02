@@ -58,10 +58,14 @@ include'getnavigation.php';
         </h1>
       </div>
       
+ <!--date("d M", strtotime($fromMYSQL))
+ $fromMYSQL = $postinfo['date_posted']; -->     
       
-      <h3> Posted on 
-       <span class="job-publish-date"><?php echo $postinfo['date_posted']; ?> </span>
-     </h3>
+      <h6 style="color:#888"> Posted on 
+       <span class="job-publish-date">
+       <?php  $fromMYSQL = $postinfo['date_posted'];
+       echo date("F j, Y", strtotime($fromMYSQL)); ?> </span>
+     </h6>
      
      
 
@@ -100,7 +104,7 @@ include'getnavigation.php';
     
     
     <?php
-    echo $apply;
+    echo "<br>".$apply;
     ?>
     
 
