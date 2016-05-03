@@ -7,12 +7,23 @@ include 'getcreatepost.php';
 ?>
 <html>
 <head>
-  <Title>Create Post</Title>
+  <title>Create Post</title>
   
   <?php
   //include head php file
   include'_head.php';
   ?>
+
+  <!--For editor-->
+  
+  
+  
+
+  <!-- <link rel="stylesheet" type="text/css" href="gizmos/wysihtml5/src/bootstrap-wysihtml5.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="gizmos/trumbowyg/dist/ui/trumbowyg.min.css"> -->
+
+  <link rel="stylesheet" href="gizmos/voog/editor.css" />
+
   
 </head>
 <body>
@@ -94,23 +105,64 @@ include 'getcreatepost.php';
             <textarea rows="7" cols="40" maxlength="2000" class="form-control" name="location" required></textarea>
           </div>
         </div>
-        
+
+ <!--editor-->
+ <div class="foreditor">
+  <div class="ewrapper" contentEditable="false">
+    <div class="toolbar">
+    <!-- 
+    <div class="editable" ***important>
+     -->          
         <div class="form-group row">
           <label for="scope" class="col-sm-2 form-control-label">Scope of Work</label>
           <div class="col-sm-8">
+          <div class="block">
+        <a data-wysihtml5-command="bold" title="CTRL+B">bold</a>
+        <a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
+      
+      
+        <a data-wysihtml5-command="insertUnorderedList">&bull; List</a>
+        <a data-wysihtml5-command="insertOrderedList">1. List</a>
+      
+      </div>
+
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="2000" class="form-control" name="scope"></textarea>
+            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="scope"></textarea>
+            <!-- <div id="trumbowyg-toolbar" name="scope"></div> -->
+            <div id="summernote" name="scope"></div>
           </div>
         </div>
-        
+      </div>
+    </div>
+  </div>
+
+
+<!--editor-->
+<div class="foreditor">
+  <div class="ewrapper" contentEditable="false">
+    <div class="toolbar">
+    <!-- 
+    <div class="editable" ***important>
+     -->           
         
         <div class="form-group row">
           <label for="addinfo" class="col-sm-2 form-control-label">Additional Info</label>
           <div class="col-sm-8">
+            <div class="block">
+              <a data-wysihtml5-command="bold" title="CTRL+B">bold</a>
+              <a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
+
+              <a data-wysihtml5-command="insertUnorderedList">&bull; List</a>
+              <a data-wysihtml5-command="insertOrderedList">1. List</a>
+            </div>
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="2000" class="form-control" name="addinfo"></textarea>
+            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="addinfo"></textarea>
           </div>
         </div>
+      </div>
+    </div>
+</div>
+
         
         <div class="form-group row">
           <label for="jobcat" class="col-sm-2 form-control-label">Job Category</label>
@@ -163,6 +215,42 @@ include 'getcreatepost.php';
    include'_scripts.php';
    include'_footer.php';
    ?>
+
+  <!--  <script src="gizmos/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+   <script src="gizmos/wysihtml5/src/bootstrap-wysihtml5.js"></script> -->
+   <!-- <script src="gizmos/trumbowyg/dist/trumbowyg.min.js"></script> -->
+   <script src="jquery.1.10.2.js" type="text/javascript" charset="utf-8"></script>
+
+   <script src="gizmos/voog/wysihtml-toolbar.min.js"></script>
+   <script src="gizmos/voog/advanced_and_extended.js"></script>
+
+<script>
+var editors = [];
+
+  $('.ewrapper').each(function(idx, wrapper) {
+    var e = new wysihtml5.Editor($(wrapper).find('.editable').get(0), {
+      toolbar:        $(wrapper).find('.toolbar').get(0),
+      parserRules:    wysihtml5ParserRules,
+      pasteParserRulesets: wysihtml5ParserPasteRulesets
+      //showToolbarAfterInit: false
+    });
+    editors.push(e);
+    
+    e.on("showSource", function() {
+      alert(e.getValue(true));
+    });
+    
+  });
+  
+</script>
+
+
+   <script>
+    // $('.textarea').wysihtml5();
+    // $(prettyPrint);
+    // $('#trumbowyg-toolbar').trumbowyg();
+
+   </script>
 
  </body>
  </html>
