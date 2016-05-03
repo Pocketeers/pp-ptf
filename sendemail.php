@@ -38,12 +38,13 @@ use Postmark\Models\PostmarkException;
 use Postmark\Models\PostmarkAttachment;
 
 		try{
+
 		// Example request
 		$client = new PostmarkClient("f5662a2d-8885-4cd1-b0b2-65b084216b3a");
 
 		//$_FILES[file][name][type][size]
 
-		$attachment = PostmarkAttachment::fromFile(dirname(__FILE__) .  '$_POST[file]', "Resume.txt", "text/plain");
+		$attachment = PostmarkAttachment::fromFile(dirname(__FILE__) .  '/resume.txt', "Resume.txt", "text/plain");
 
 		$sendResult = $client->sendEmail(
 		  "farid@pocketpixel.com",
