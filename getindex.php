@@ -43,6 +43,7 @@ include 'dbcon.php';
             //if($highlight==true){$text="<li class='highlight'>"}
             //else $text = "<li>";
             //replace "<li>" with $text.
+
             $fromMYSQL = $postinfo['date_posted'];
 
             //display the records
