@@ -38,6 +38,7 @@ include 'dbcon.php';
           //loop to fetch all records
           while($postinfo=mysqli_fetch_array($results)){
 
+            $fromMYSQL = $postinfo['date_posted'];
 
             //display the records
             echo "<li>".

@@ -94,7 +94,7 @@ include'getform.php';
 					<div class="form-group row">
 						<label class="col-sm-2">Attach Resume:</label>
 						<div class="col-sm-10">
-							<input type="file" class="btn btn-secondary" name="file">
+							<input type="file" id="file" class="btn btn-secondary" name="file">
 						</div>
 					</div>
 					

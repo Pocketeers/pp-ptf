@@ -41,7 +41,9 @@ use Postmark\Models\PostmarkAttachment;
 		// Example request
 		$client = new PostmarkClient("f5662a2d-8885-4cd1-b0b2-65b084216b3a");
 
-		$attachment = PostmarkAttachment::fromFile(dirname(__FILE__) .  '/resume.txt', "Resume.txt", "text/plain");
+		//$_FILES[file][name][type][size]
+
+		$attachment = PostmarkAttachment::fromFile(dirname(__FILE__) .  '$_POST[file]', "Resume.txt", "text/plain");
 
 		$sendResult = $client->sendEmail(
 		  "farid@pocketpixel.com",
