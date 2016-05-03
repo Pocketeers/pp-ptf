@@ -38,13 +38,20 @@ include 'dbcon.php';
           //loop to fetch all records
           while($postinfo=mysqli_fetch_array($results)){
 
+            //display the records
+            //
+            //if($highlight==true){$text="<li class='highlight'>"}
+            //else $text = "<li>";
+            //replace "<li>" with $text.
+
+            $fromMYSQL = $postinfo['date_posted'];
 
             //display the records
             echo "<li>".
             "<a class=\"postlink\" href=\"viewpost.php?post_id=".$postinfo['post_id']."\">".
             "<span class='job-employer'>".$postinfo['employer']."</span>".
             "<span class ='job-title'>".$postinfo['work']."</span>".
-            "<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>".
+            //"<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>".
             "<span class = 'job-salary'>RM" .$postinfo['salary']." (Per ".$postinfo['salary_rate'].") </span>" .
             "<span class = 'job-publish-date'>". date("d M", strtotime($fromMYSQL))."</span>".
             "</a>

@@ -47,7 +47,7 @@ include'restrict.php';
      
       <?php
 
-      include'getmyads.php';
+       include'getmyads.php';
 
       ?>
     </ul>
