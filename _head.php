@@ -6,3 +6,9 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+
+<!-- Favicon -->
+
+<link rel="icon"
+      type="image/png"
+      href="favicon.png">
