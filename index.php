@@ -27,35 +27,28 @@ include'getnavigation.php';
 
 
   <div class="middlebody">
+      <h3 class="main-message">You can find part-time and full-time jobs on workwork. So get off the couch and go make some money! </h3>
 
-    <p>
-      <h5> Available Jobs </h5>
-    </p>
 
     <div class="container">
 
       <!-- Search bar -->
-      <form action="index.php" method="post">
+      <form action="index.php" method="post" id="search">
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-              <div id="imaginary_container">
-                <div class="input-group stylish-input-group">
-                  <input type="text" class="form-control"  placeholder="Search" >
-                  <span class="input-group-addon">
-                    <button type="submit">
-                      <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
-                </div>
+              <div class="input-group stylish-input-group">
+                <input type="text" class="form-control"  placeholder="Search" >
+                <span class="input-group-addon">
+                  <button type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </span>
               </div>
             </div>
           </div>
         </div>
       </form>
-
-      <br>
-
 
       <div id="job-list" class="col-md-8 col-md-offset-2">
         <hr>
