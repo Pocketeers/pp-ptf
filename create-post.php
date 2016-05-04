@@ -91,7 +91,7 @@ include 'getcreatepost.php';
             <label class="col-sm-2">Salary Rate:</label>
             <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="loccat">
+            <select class="form-control" name="rate">
               <option value="hour">Per Hour</option>
               <option value="month">Per Month</option>
             </select>
