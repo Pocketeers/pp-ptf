@@ -13,7 +13,7 @@ include'getnavigation.php';
   ?>
 </head>
 
-<body>
+<body class="main-page">
 
   <!-- _navigation -->
   <?php
