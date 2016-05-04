@@ -21,24 +21,10 @@ include'getupdatepost.php';
 </head>
 <body>
 
-<!--Navigation bar -->	
-	<nav class="navbar navbar-static-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="#">Part Time Finder</a>
-          <ul class="nav navbar-nav">
-            <li class="nav-item">
-				<a class="nav-link" href="index.php">HOME <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo $linkhref; ?>"><?php echo $linktitle ?></a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="<?php echo $linkhref1; ?>"><?php echo $linktitle1 ?></a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="<?php echo $loginhref; ?>"><?php echo $login ?></a>
-            </li>
-          </ul>
-    </nav>
+<!-- _navigation -->
+  <?php 
+     include '_navigation.php';
+  ?>
 	
 	<div class="container">
 	  <div class="row">	

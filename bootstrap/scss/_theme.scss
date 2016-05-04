@@ -61,6 +61,23 @@ hr{border-width: 2px;
 
 /* search bar */
 
+.navbar.ww-navbar
+{
+  position: absolute; 
+  left: 0; 
+  right:0;
+  z-index: 1000;
+}
+
+.nav.navbar-nav
+{
+	float:right;
+}
+
+
+
+
+
 
 
 
