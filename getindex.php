@@ -36,6 +36,7 @@ include 'dbcon.php';
         if(mysqli_num_rows($results) > 0){
 
           //loop to fetch all records
+          echo "<ul class='jobs list-inline'>";
           while($postinfo=mysqli_fetch_array($results)){
 
             //display the records
@@ -53,11 +54,12 @@ include 'dbcon.php';
             "<span class ='job-title'>".$postinfo['work']."</span>".
             //"<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>".
             "<span class = 'job-salary'>RM" .$postinfo['salary']." (Per ".$postinfo['salary_rate'].") </span>" .
-            "<span class = 'job-publish-date'>". date("d M", strtotime($fromMYSQL))."</span>".
+            "<span style='display:none;' class = 'job-publish-date'>". date("d M", strtotime($fromMYSQL))."</span>".
             "</a>
             </li>";
 
           }
+          echo "</ul>";
 
         }else{
 
@@ -65,5 +67,6 @@ include 'dbcon.php';
           echo "0 Results";
 
         }
+
 
 ?>

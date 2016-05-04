@@ -6,7 +6,7 @@ include'getnavigation.php';
 <html>
 
 <head>
-  <title>Part Time Finder</title>
+  <title>Part-time jobs at workwork (and some full-time as well)</title>
   <?php
   //include head php file
   include'_head.php';
@@ -15,12 +15,12 @@ include'getnavigation.php';
 
 <body>
 
-<!-- _navigation -->
-  <?php 
-     include '_navigation.php';
+  <!-- _navigation -->
+  <?php
+  include '_navigation.php';
   ?>
 
-<div class="jumbotron oh-hello">
+  <div class="jumbotron oh-hello">
   </div>
 
 
@@ -28,42 +28,39 @@ include'getnavigation.php';
 
   <div class="middlebody">
 
-     <p>
+    <p>
       <h5> Available Jobs </h5>
     </p>
 
     <div class="container">
 
-    <!-- Search bar -->
-    <form action="index.php" method="post">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-            <div id="imaginary_container"> 
+      <!-- Search bar -->
+      <form action="index.php" method="post">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <div id="imaginary_container">
                 <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" >
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>  
-                    </span>
+                  <input type="text" class="form-control"  placeholder="Search" >
+                  <span class="input-group-addon">
+                    <button type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-  </div>
-</div>
-    </form>
+      </form>
 
-    <br>
-    <hr>
+      <br>
 
-      <ul class='jobs list-inline'>
-        <?php
 
-        include'getindex.php';
-
-        ?>
-      </ul>
+      <div id="job-list" class="col-md-8 col-md-offset-2">
+        <hr>
+        <?php include'getindex.php'; ?>
+      </div>
     </div>
 
   </div>
