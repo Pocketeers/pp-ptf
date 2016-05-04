@@ -31,6 +31,7 @@ if($confirm = mysqli_query($conn, $check)){
 
 }
 
+include 'attachment.php';
 
 require_once('./vendor/autoload.php');
 use Postmark\PostmarkClient;
@@ -44,7 +45,7 @@ use Postmark\Models\PostmarkAttachment;
 
 		//$_FILES[file][name][type][size]
 
-		$attachment = PostmarkAttachment::fromFile(dirname(__FILE__) .  '/resume.txt', "Resume.txt", "text/plain");
+		$attachment = PostmarkAttachment::fromFile($target_dir . basename($_FILES["file"]["name"]), basename($_FILES["file"]["name"]), "text/plain");
 
 		$sendResult = $client->sendEmail(
 		  "farid@pocketpixel.com",
@@ -77,42 +78,8 @@ use Postmark\Models\PostmarkAttachment;
 
 		if($sendResult){
 
-			//declare $_POST['variable'] as variable that can escape inputed values
-			$_POST['aname']=mysqli_real_escape_string($conn, $_POST['aname']);
-			$_POST['age']=mysqli_real_escape_string($conn, $_POST['age']);
-			$_POST['experience']=mysqli_real_escape_string($conn, $_POST['experience']);
-			$_POST['email']=mysqli_real_escape_string($conn, $_POST['email']);
-			$_POST['area']=mysqli_real_escape_string($conn, $_POST['area']);
-
-			//insert data to table "posts"
-			$sql="INSERT INTO applicant(
-				aname,
-				age,
-				experience,
-				contact,
-				email,
-				exp_details,
-				post_id,
-				status) 
-			VALUES('$_POST[aname]',
-				'$_POST[age]',
-				'$_POST[experience]',
-				'$_POST[contact]',
-				'$_POST[email]',
-				'$_POST[area]',
-				'$_POST[postid]',
-				'$_POST[status]')";
-
-
-			//check if query run
-			if(mysqli_query($conn, $sql)){
-
-				header("Location: sent.php");
-
-			}else{
-
-				echo "Not Successful";
-			}
+			include 'addapply.php';
+			header("Location: sent.php");
 
 		}else{
 
