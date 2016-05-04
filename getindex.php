@@ -5,7 +5,6 @@ include 'dbcon.php';
 	//check connection
     if($conn){
 
-
             //Pagination code 
             //Documentation link below
             //https://www.developphp.com/video/PHP/Pagination-MySQLi-Google-Style-Paged-Results-Tutorial
@@ -49,24 +48,25 @@ include 'dbcon.php';
             
 
             //Based on search
-        if(isset($_POST['submit']))
+        if(!isset($_POST['search']) AND !isset($_POST['jobcat']))
         {
 
-             $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
-
-            //set sql statement to select all record from "posts" table that matches the input
-            $sql = "SELECT * FROM posts WHERE work LIKE '%".$_POST['search']."%' AND post_status = 'published' ORDER BY date_posted DESC $limit";
-
-            //run sql statement with query
-            $query= mysqli_query($conn, $sql);
+            //query for grabbing just one page worth of rows by applying limit
+            $sql = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY date_posted DESC $limit";
 
         }
         else
         {    
-            //query for grabbing just one page worth of rows by applying limit
-            $sql4 = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY date_posted DESC $limit";
-            $query = mysqli_query($conn, $sql4);
+            $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
+
+             //set sql statement to select all record from "posts" table that matches the input
+            $sql = "SELECT * FROM posts WHERE post_status = 'published' AND work LIKE '%$_POST[search]%' AND jobcat LIKE '%$_POST[jobcat]%' ORDER BY date_posted DESC $limit";
+        
         }
+
+        //run sql statement with query
+            $query= mysqli_query($conn, $sql);
+
             //shows user what page they are on & total number of pages
          //   $textline1 = "Testimonials (<b>$rows</b>)";
             $textline2 = "Page <b>$pagenum</b> of <b>$last</b>";
@@ -114,7 +114,8 @@ include 'dbcon.php';
             }
 
 
-    }else
+    }
+    else
     {
 
         echo "The database cannot be connected right now. Please try again later";
@@ -122,11 +123,13 @@ include 'dbcon.php';
     }
 
 
-     // $list = '';
-    //check if table record exist
-       if(mysqli_num_rows($query) > 0){
+     
 
        // echo $textline2;
+        // $list = '';
+    //check if table record exist
+       if(mysqli_num_rows($query) > 0)
+       {
 
           //loop to fetch all records
           echo "<ul class='jobs list-inline'>";
@@ -144,9 +147,9 @@ include 'dbcon.php';
             echo "<li>".
             "<a class=\"postlink\" href=\"viewpost.php?post_id=".$postinfo['post_id']."\">".
             "<span class='job-employer'>".$postinfo['employer']."</span>".
-            "<span class ='job-title'>".$postinfo['work']."</span>".
+            "<span class='job-title'>".$postinfo['work']."</span>".
             //"<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>".
-            "<span class = 'job-salary'>RM" .$postinfo['salary']." (Per ".$postinfo['salary_rate'].") </span>" .
+            "<span class='job-salary'><sup class='currency'>RM</sup>" .$postinfo['salary']." <sub class='salary-rate-type'>/ ".$postinfo['salary_rate']."</sub> </span>" .
             "<span style='display:none;' class = 'job-publish-date'>". date("d M", strtotime($fromMYSQL))."</span>".
             "</a>
             </li>";
@@ -154,11 +157,9 @@ include 'dbcon.php';
           }
           echo "</ul>";
 
-        }else{
-
+        }else
+        {
           //display message if no record were found
          echo "0 Results";
-
-       }    
-
+        }
 ?>
