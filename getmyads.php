@@ -47,6 +47,19 @@ include 'dbcon.php';
           echo "<span class='myadDelete'><a class='btn btn-danger' href=\" delmessage.php?post_id=".$postinfo['post_id']." \">Delete</a></span>";
           
           echo "<span class='myadEdit'><a class='btn btn-secondary' href=\" updatepost.php?post_id=".$postinfo['post_id']." \">Edit</a></span>";
+
+
+          //change button to publish/unpublish
+          $sql3 = "SELECT * FROM posts WHERE post_id='$postinfo[post_id]'";
+          $result3 = mysqli_query($conn,$sql3);
+          $row = mysqli_fetch_assoc($result3);
+          if($row['post_status'] == 'unpublished')
+            {$publish = "Unpublished"; }
+          else
+            {$publish = "Published";}
+
+
+          echo "<span class='myadEdit'><a class='btn btn-info' href=\" publish.php?post_id=".$postinfo['post_id']."\">". $publish ."</a></span>";
           
           echo "</li>";
                         //<a href=\"viewpost.php?id=".$postinfo['id']."\">
