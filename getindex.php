@@ -5,34 +5,26 @@ include 'dbcon.php';
 	//check connection
     if($conn){
 
+        $results = "";
+
         //escape user string input
         $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
 
-        if(isset($_POST['submit'])){
+        if(!isset($_POST['search']) AND !isset($_POST['jobcat'])){
 
     		//set sql statement to select all record from "posts" table that matches the input
-            $sql = "SELECT * FROM posts WHERE work LIKE '%".$_POST['search']."%' AND post_status = 'published' ORDER BY date_posted DESC";
-
-    		//run sql statement with query
-            $results= mysqli_query($conn, $sql);
+            $sql = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY date_posted DESC";
 
         }else{
 
-            //set sql statement to select all record from "posts" table that matches the input
-            $sql = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY date_posted DESC";
-
-            //run sql statement with query
-            $results= mysqli_query($conn, $sql);
+            $sql = "SELECT * FROM posts WHERE post_status = 'published' AND work LIKE '%$_POST[search]%' AND jobcat LIKE '%$_POST[jobcat]%' ORDER BY date_posted DESC";
 
         }
 
-    }else{
+        //run sql statement with query
+        $results= mysqli_query($conn, $sql);
 
-        echo "The database cannot be connected right now. Please try again later";
-
-    }
-
-    //check if table record exist
+        //check if table record exist
         if(mysqli_num_rows($results) > 0){
 
           //loop to fetch all records
@@ -67,6 +59,12 @@ include 'dbcon.php';
           echo "0 Results";
 
         }
+
+    }else{
+
+        echo "The database cannot be connected right now. Please try again later";
+
+    }
 
 
 ?>
