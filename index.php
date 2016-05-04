@@ -25,7 +25,6 @@ include'getnavigation.php';
 
 
 
-
   <div class="middlebody">
       <h3 class="main-message">You can find part-time and full-time jobs on workwork. So get off the couch and go make some money! </h3>
 
@@ -52,7 +51,10 @@ include'getnavigation.php';
 
       <div id="job-list" class="col-md-8 col-md-offset-2">
         <hr>
+        
         <?php include'getindex.php'; ?>
+          <div id="pagination_controls"><?php echo $paginationCtrls; ?></div>
+
       </div>
     </div>
 
