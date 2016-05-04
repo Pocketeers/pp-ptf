@@ -41,13 +41,24 @@ include'getnavigation.php';
         <div class="col-sm-6 col-sm-offset-3">
             <div id="imaginary_container"> 
                 <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" >
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>  
+                    <input type="text" name="search" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon"> 
                     </span>
                 </div>
+
+                <p>
+                <div class="form-group row">
+                <label for="location" class="col-sm-4 form-control-label">Job Category:</label>
+                <div class="col-sm-5">
+                  <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
+                  <select class="form-control" name="jobcat">
+                    <option value="services">Services</option>
+                    <option value="food">Food</option>
+                  </select>
+                </div>
+              </div> 
+              </p> 
+
             </div>
         </div>
   </div>

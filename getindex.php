@@ -8,7 +8,7 @@ include 'dbcon.php';
         //escape user string input
         $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
 
-        if(isset($_POST['submit'])){
+        if(isset($_POST['search'])){
 
     		//set sql statement to select all record from "posts" table that matches the input
             $sql = "SELECT * FROM posts WHERE work LIKE '%".$_POST['search']."%' AND post_status = 'published' ORDER BY date_posted DESC";
