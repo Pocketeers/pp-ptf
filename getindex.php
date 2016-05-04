@@ -53,7 +53,7 @@ include 'dbcon.php';
             "<span class='job-employer'>".$postinfo['employer']."</span>".
             "<span class='job-title'>".$postinfo['work']."</span>".
             //"<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>".
-            "<span class='job-salary'>RM" .$postinfo['salary']." <span class='salary-rate-type'>/ ".$postinfo['salary_rate']."</span> </span>" .
+            "<span class='job-salary'><sup class='currency'>RM</sup>" .$postinfo['salary']." <sub class='salary-rate-type'>/ ".$postinfo['salary_rate']."</sub> </span>" .
             "<span style='display:none;' class = 'job-publish-date'>". date("d M", strtotime($fromMYSQL))."</span>".
             "</a>
             </li>";

@@ -20,13 +20,19 @@
 	.myadEdit{float: right; margin-right: 30px}
 
 	.job-employer{color:black; font-weight: bold; width: 25%;}
-	.job-title{color:8D2CFF;text-decoration: underline; width: 20%;}
+	.job-title{color:8D2CFF;text-decoration: underline; width: 50%;}
 	.job-category{}
-	.job-salary{color:black; font-weight: bold; float: right;}
+	.job-salary{color:black; font-weight: bold;}
 	.job-publish-date{color:#B5B5B5; float:right;}
 
 	.salary-rate-type{
-		font-size: 14px;
+		font-size: 0.8rem;
+	}
+
+	.currency {
+		margin-right: 5px;
+		font-weight: normal;
+		font-size: 0.7rem;
 	}
 
 }
