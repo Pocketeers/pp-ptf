@@ -26,11 +26,13 @@ include'getnavigation.php';
 
 
   <div class="middlebody">
-    <h3 class="main-message">You can find part-time and full-time jobs on workwork. So get off the couch and go make some money! </h3>
+
+      <h3 class="main-message">There's plenty of part-time gigs on workwork. So get off the couch and go make some money! <br><small>#NoLazyMoarMoney #AlwaysBeHustling</small> </h3>
 
 
     <div class="container">
       <!-- Search bar -->
+
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <form class="form-inline" action="index.php" method="post">
@@ -53,10 +55,6 @@ include'getnavigation.php';
             </form>
         </div>
       </div>
-
-
-
-
 
             <div id="job-list" class="col-md-8 col-md-offset-2">
               <hr>

@@ -1,6 +1,7 @@
 <?php
 include'getnavigation.php';
 include'restrict.php';
+include 'restrict2.php';
 
 $fromMYSQL = $_POST['date_posted'];
 ?>
@@ -54,11 +55,11 @@ $fromMYSQL = $_POST['date_posted'];
 
 
        <div class="job-salary">
-        RM<?php echo $_POST['salary']; ?> per hour
+        RM<?php echo $_POST['salary']; ?>
       </div>
 
       <div class="job-rate">
-        Per<?php echo $_POST['rate']; ?>
+        Per <?php echo $_POST['rate']; ?>
       </div>
 
       <div class="job-location">
@@ -66,19 +67,19 @@ $fromMYSQL = $_POST['date_posted'];
       </div>
 
       <div class="job-city">
-        Per<?php echo $_POST['city']; ?>
+        <?php echo $_POST['city']; ?>
       </div>
 
       <div class="job-state">
-        Per<?php echo $_POST['state']; ?>
+        <?php echo $_POST['state']; ?>
       </div>
 
       <div class="job-postcode">
-        Per<?php echo $_POST['postcode']; ?>
+        <?php echo $_POST['postcode']; ?>
       </div>
 
       <div class="job-city">
-        Per<?php echo $_POST['country']; ?>
+        <?php echo $_POST['country']; ?>
       </div>
 
 
