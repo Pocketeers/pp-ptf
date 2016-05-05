@@ -49,21 +49,20 @@ include 'getcreatepost.php';
 
         <!-- Gets today's date -->			  
         <?php
-        date_default_timezone_set("Asia/Kuala_Lumpur");
         $date = date("Y,m,j H:i:s");
         ?>
         
         <div class="form-group row">
           <label for="jobtitle" class="col-sm-2 form-control-label">Job Title</label>
           <div class="col-sm-8">
-            <input name="work" class="form-control" type="text" required>
+            <input name="work" class="form-control" type="text" value="<?php echo $_POST['work']; ?>" required>
           </div>
         </div>
         
         <div class="form-group row">
-          <label for="employer" class="col-sm-2 form-control-label">Employer</label>
+          <label for="employer" class="col-sm-2 form-control-label" >Employer</label>
           <div class="col-sm-8">
-           <input name="employer" class="form-control" type="text" required>
+           <input name="employer" class="form-control" type="text" value="<?php echo $_POST['employer']; ?>" required>
          </div>
        </div>
        
@@ -71,7 +70,7 @@ include 'getcreatepost.php';
         <label for="salary" class="col-sm-2 form-control-label">Salary:
           RM</label>
           <div class="col-sm-8">
-            <input name="salary" class="form-control" min="1" type="number" required>
+            <input name="salary" class="form-control" min="1" type="number" value="<?php echo $_POST['salary']; ?>" required>
           </div>
         </div>
 
@@ -79,7 +78,8 @@ include 'getcreatepost.php';
             <label class="col-sm-2">Salary Rate:</label>
             <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="rate">
+            <select class="form-control" name="rate" placeholder="Select State" required>
+            <option value="" disabled selected>Select Rate</option>
               <option value="hour">Per Hour</option>
               <option value="month">Per Month</option>
             </select>
@@ -89,14 +89,14 @@ include 'getcreatepost.php';
         <div class="form-group row">
           <label for="company_address" class="col-sm-2 form-control-label">Address</label>
           <div class="col-sm-8">
-           <input name="company_address" class="form-control" type="text" required>
+           <input name="company_address" class="form-control" type="text" value="<?php echo $_POST['company_address']; ?>" required>
          </div>
        </div>
 
        <div class="form-group row">
           <label for="city" class="col-sm-2 form-control-label">City</label>
           <div class="col-sm-8">
-           <input name="city" class="form-control" type="text" required>
+           <input name="city" class="form-control" type="text" value="<?php echo $_POST['city']; ?>" required>
          </div>
        </div>
 
@@ -104,7 +104,8 @@ include 'getcreatepost.php';
           <label for="state" class="col-sm-2 form-control-label">State</label>
           <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="state">
+            <select class="form-control" name="state" required>
+              <option value="" disabled selected>Select State</option>
               <option value="Kuala Lumpur">Kuala Lumpur</option>
               <option value="Johor">Johor</option>
               <option value="Kedah">Kedah</option>
@@ -127,7 +128,7 @@ include 'getcreatepost.php';
        <div class="form-group row">
           <label for="postcode" class="col-sm-2 form-control-label">Postcode</label>
           <div class="col-sm-8">
-           <input name="postcode" class="form-control" type="text" required>
+           <input name="postcode" class="form-control" type="text" value="<?php echo $_POST['postcode']; ?>" required>
          </div>
        </div>
 
@@ -161,7 +162,7 @@ include 'getcreatepost.php';
       </div>
 
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="3000" class="form-control editable" name="scope"></textarea>
+            <textarea rows="7" cols="40" maxlength="3000" class="form-control editable" name="scope" ><?php echo $_POST['scope']; ?></textarea>
             <!-- <div id="trumbowyg-toolbar" name="scope"></div> -->
             <div id="summernote" name="scope"></div>
           </div>
@@ -190,7 +191,7 @@ include 'getcreatepost.php';
               <a data-wysihtml5-command="insertOrderedList">1. List</a>
             </div>
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="addinfo"></textarea>
+            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="addinfo"><?php echo $_POST['addinfo']; ?></textarea>
           </div>
         </div>
       </div>
@@ -218,7 +219,7 @@ include 'getcreatepost.php';
       </div>
 
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="company_info"></textarea>
+            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="company_info"><?php echo $_POST['company_info']; ?></textarea>
             <!-- <div id="trumbowyg-toolbar" name="scope"></div> -->
             <div id="summernote" name="company_info"></div>
           </div>
@@ -232,7 +233,8 @@ include 'getcreatepost.php';
           <label for="jobcat" class="col-sm-2 form-control-label">Job Category</label>
           <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="jobcat">
+            <select class="form-control" name="jobcat" required>
+              <option value="" disabled selected>Select Job Category</option>
               <option values="Services">Services</option>
               <option values="Food">Food</option>
             </select>

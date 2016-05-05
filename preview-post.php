@@ -2,6 +2,7 @@
 include'getnavigation.php';
 include'restrict.php';
 
+$fromMYSQL = $_POST['date_posted'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +41,7 @@ include'restrict.php';
 
         <h3> Posted on 
          <span class="job-publish-date">
-         <?php $fromMYSQL = $_POST['date_posted']; echo date("F j, Y", strtotime($fromMYSQL)); ?>
+         <?php echo date("d M", strtotime($fromMYSQL)); ?>
        </span>
        </h3>
 
@@ -56,9 +57,29 @@ include'restrict.php';
         RM<?php echo $_POST['salary']; ?> per hour
       </div>
 
+      <div class="job-rate">
+        Per<?php echo $_POST['rate']; ?>
+      </div>
+
       <div class="job-location">
         <?php echo $_POST['company_address']; ?>
-      </div>  
+      </div>
+
+      <div class="job-city">
+        Per<?php echo $_POST['city']; ?>
+      </div>
+
+      <div class="job-state">
+        Per<?php echo $_POST['state']; ?>
+      </div>
+
+      <div class="job-postcode">
+        Per<?php echo $_POST['postcode']; ?>
+      </div>
+
+      <div class="job-city">
+        Per<?php echo $_POST['country']; ?>
+      </div>
 
 
       <div class="job-scope">
@@ -69,17 +90,43 @@ include'restrict.php';
         <?php echo $_POST['addinfo']; ?>
       </div>
 
-      <div class="job-category">
-        <?php echo $_POST['jobcat']; ?>
+      <div class="job-company">
+        <?php echo $_POST['company_info']; ?>
       </div>
 
-      <div class="job-locationcat">
-        <?php echo $_POST['state']; ?>
+      <div class="job-category">
+        <?php echo $_POST['jobcat']; ?>
       </div>
 
   </div>  
 </div>
 </div>
+<form name="create-first-post" action="create-first-post.php" method="post">
+<input type="hidden" name="work" value="<?php echo $_POST['work']; ?>"/>
+<input type="hidden" name="salary" value="<?php echo $_POST['salary']; ?>"/>
+<input type="hidden" name="scope" value="<?php echo $_POST['scope']; ?>"/>
+<input type="hidden" name="addinfo" value="<?php echo $_POST['addinfo']; ?>"/>
+<input type="hidden" name="jobcat" value="<?php echo $_POST['jobcat']; ?>"/>
+<input type="hidden" name="date_posted" value="<?php echo $_POST['date_posted']; ?>"/>
+<input type="hidden" name="user_id" value="<?php echo $_POST['user_id']; ?>"/>
+<input type="hidden" name="rate" value="<?php echo $_POST['rate']; ?>"/>
+<input type="hidden" name="post_status" value="published"/>
+<!-- table company input-->
+<input type="hidden" name="employer" value="<?php echo $_POST['employer']; ?>"/>
+<input type="hidden" name="company_address" value="<?php echo $_POST['company_address']; ?>"/>
+<input type="hidden" name="city" value="<?php echo $_POST['city']; ?>"/>
+<input type="hidden" name="state" value="<?php echo $_POST['state']; ?>"/>
+<input type="hidden" name="postcode" value="<?php echo $_POST['postcode']; ?>"/>
+<input type="hidden" name="country" value="<?php echo $_POST['country']; ?>"/>
+<input type="hidden" name="company_info" value="<?php echo $_POST['company_info']; ?>"/>
+
+    <div class="form-group row">
+        <div class="col-sm-offset-2 col-sm-10">
+           <input class="btn btn-primary" type="submit" name="editBtn" value="EDIT">
+        </div>
+    </div>
+</form>
+
 <form name="create-first-post" action="addpost.php" method="post">
 <input type="hidden" name="work" value="<?php echo $_POST['work']; ?>"/>
 <input type="hidden" name="salary" value="<?php echo $_POST['salary']; ?>"/>
@@ -101,7 +148,6 @@ include'restrict.php';
 
     <div class="form-group row">
         <div class="col-sm-offset-2 col-sm-10">
-          <a class="cancelbtn" href="index.php">CANCEL</a>
            <input class="btn btn-primary" type="submit" name="postBtn" value="POST">
         </div>
     </div>

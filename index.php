@@ -25,49 +25,38 @@ include'getnavigation.php';
 
 
 
-
   <div class="middlebody">
       <h3 class="main-message">You can find part-time and full-time jobs on workwork. So get off the couch and go make some money! </h3>
 
 
     <div class="container">
-
       <!-- Search bar -->
-      <form action="index.php" method="post" id="search">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-              <div class="input-group stylish-input-group">
-                <input type="text" name="search" class="form-control"  placeholder="Search" >
-                <span class="input-group-addon">
-                  <button type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
-                  </button>
-                </span>
-              </div>
-
-              <p>
-                <div class="form-group row">
-                <label for="location" class="col-sm-4 form-control-label">Job Category:</label>
-                <div class="col-sm-5">
-                  <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-                  <select class="form-control" name="jobcat">
+      <form class="form-inline" action="index.php" method="post" style="text-align: center;">
+        <div clas="form-group">
+            <input type="text" name="search" class="form-control" id="exampleInputName2"  placeholder="Search">
+     
+                  <!-- setting text area box size rows= height, cols= width, maxlength= char limit 
+                   -->   
+                   <select class="form-control" name="jobcat">
                     <option value="">Choose a Category</option>
                     <option value="services">Services</option>
                     <option value="food">Food</option>
-                  </select>
-                </div>
-              </div> 
-              </p> 
-
-            </div>
-          </div>
+                  </select> 
+            <button type="submit" class="bt btn-primary">Search</button>
         </div>
+            
       </form>
+
+         
+      
+      
 
       <div id="job-list" class="col-md-8 col-md-offset-2">
         <hr>
+        
         <?php include'getindex.php'; ?>
+          <div id="pagination_controls"><?php echo $paginationCtrls; ?></div>
+
       </div>
     </div>
 

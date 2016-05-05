@@ -6,29 +6,129 @@ include 'dbcon.php';
     if($conn){
 
 
-        if(!isset($_POST['search']) AND !isset($_POST['jobcat'])){
+            //Pagination code 
+            //Documentation link below
+            //https://www.developphp.com/video/PHP/Pagination-MySQLi-Google-Style-Paged-Results-Tutorial
+            $sql4 = "SELECT COUNT(*) FROM posts WHERE post_status = 'published'";
+            $query = mysqli_query($conn, $sql4);
+            $row = mysqli_fetch_row($query);
 
-    		//set sql statement to select all record from "posts" table that matches the input
-            $sql = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY date_posted DESC";
+            $rows = $row[0];
 
-        }else{
+            //number of results per page
+            $page_rows = 50;
 
-            //escape user string input
+            //page number of last page
+            $last = ceil($rows/$page_rows);
+            //$last shouldn't be less than 1
+            if($last < 1)
+            {
+                $last = 1;
+            }
+
+            $pagenum = 1;
+
+            //get pagenum from URL if any
+            if(isset($_GET['pn'])){
+                $pagenum = preg_replace('#[^0-9]#','', $_GET['pn']);
+            }
+
+            //page num is greater than 1 and smaller than last page num
+            if($pagenum < 1) 
+                { $pagenum = 1;}
+            else if($pagenum > $last)
+                { $pagenum = $last;}
+
+            $limit = 'LIMIT ' .($pagenum - 1) * $page_rows.',' .$page_rows;
+       
+                
+            //Based on search
+        if(!isset($_POST['search']) AND !isset($_POST['jobcat']))
+        {
+
+            //query for grabbing just one page worth of rows by applying limit
+            $sql = "SELECT * FROM posts INNER JOIN company ON posts.user_id=company.user_id WHERE post_status = 'published' ORDER BY date_posted DESC $limit";
+
+        }
+        else
+        {    
             $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
-        
-            $sql = "SELECT * FROM posts WHERE post_status = 'published' AND work LIKE '%$_POST[search]%' AND jobcat LIKE '%$_POST[jobcat]%' ORDER BY date_posted DESC";
 
+             //set sql statement to select all record from "posts" table that matches the input
+            $sql = "SELECT * FROM posts INNER JOIN company ON posts.user_id=company.user_id WHERE post_status = 'published' AND work LIKE '%$_POST[search]%' AND jobcat LIKE '%$_POST[jobcat]%' ORDER BY date_posted DESC $limit";
+        
         }
 
         //run sql statement with query
-        $results= mysqli_query($conn, $sql);
+            $query= mysqli_query($conn, $sql);
 
-        //check if table record exist
-        if(mysqli_num_rows($results) > 0){
+            //shows user what page they are on & total number of pages
+         //   $textline1 = "Testimonials (<b>$rows</b>)";
+            $textline2 = "Page <b>$pagenum</b> of <b>$last</b>";
+            
+            $paginationCtrls = '';
+
+            //if there is more than 1 page worth of results
+            if($last != 1)
+            {
+                if($pagenum > 1)
+                {
+                  $previous = $pagenum - 1;
+                    $paginationCtrls .= '<a href="'.'?pn='.$previous.'">Previous</a> &nbsp; &nbsp;'; 
+
+                    //for clickable number links, on left side
+                    for($i = $pagenum-4; $i < $pagenum; $i++)
+                    {
+                        if($i > 0) 
+                        {
+                            $paginationCtrls .= '<a href="'. '?pn='.$i.'">'.$i.'</a> &nbsp;';
+                        }
+                    }  
+                }
+
+            //Render target page number, but without it being link(page user is in)
+                $paginationCtrls .= ''.$pagenum. '&nbsp; ';
+
+                //Render clickable number links that should appear on the right of the target page number
+                for($i = $pagenum+1; $i <= $last; $i++)
+                {
+                    $paginationCtrls .= '<a href="'.'?pn='.$i.'">'.$i.'</a> &nbsp; ';
+                    if($i >= $pagenum+4)
+                    {
+                        break;
+                    }
+                }
+
+                //This does the same as above, only checks if we are on the last page and then generates "Next"
+                if ($pagenum != $last)
+                {
+                    $next = $pagenum + 1;
+                    $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.'?pn='.$next.'">Next</a> ';
+                }
+
+            }
+
+
+    }
+    else
+    {
+
+        echo "The database cannot be connected right now. Please try again later";
+
+    }
+
+
+     
+
+       // echo $textline2;
+        // $list = '';
+    //check if table record exist
+       if(mysqli_num_rows($query) > 0)
+       {
 
           //loop to fetch all records
           echo "<ul class='jobs list-inline'>";
-          while($postinfo=mysqli_fetch_array($results)){
+          while($postinfo=mysqli_fetch_array($query)){
 
             //display the records
             //
@@ -41,7 +141,7 @@ include 'dbcon.php';
             //display the records
             echo "<li>".
             "<a class=\"postlink\" href=\"viewpost.php?post_id=".$postinfo['post_id']."\">".
-            "<span class='job-employer'>".$postinfo['employer']."</span>".
+            "<span class='job-employer'>".$postinfo['company_name']."</span>".
             "<span class='job-title'>".$postinfo['work']."</span>".
             //"<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>".
             "<span class='job-salary'><sup class='currency'>RM</sup>" .$postinfo['salary']." <sub class='salary-rate-type'>/ ".$postinfo['salary_rate']."</sub> </span>" .
@@ -52,18 +152,9 @@ include 'dbcon.php';
           }
           echo "</ul>";
 
-        }else{
-
+        }else
+        {
           //display message if no record were found
-          echo "0 Results";
-
+         echo "0 Results";
         }
-
-    }else{
-
-        echo "The database cannot be connected right now. Please try again later";
-
-    }
-
-
 ?>
