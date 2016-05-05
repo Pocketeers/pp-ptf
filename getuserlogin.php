@@ -36,8 +36,8 @@ if(mysqli_num_rows($results) > 0){
 
 				//set user session
 		      	$_SESSION['user'] = $_POST['username'];
-		      	//redirect to link
 
+		      	//redirect to link
 				header('Location: index.php');
 
 			}else {

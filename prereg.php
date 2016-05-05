@@ -2,13 +2,6 @@
 //for navigation bar
 include'getnavigation.php';
 include'register.php';
-
-//set local timezone
-date_default_timezone_set("Asia/Kuala_Lumpur");
-
-//set input date function as varianle
-$regdate = date("Y.m.d");
-
 ?>
 
 <html>
@@ -46,6 +39,14 @@ $regdate = date("Y.m.d");
 						<div class="col-sm-8">
 							<input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"><br><?php echo $emailerror; ?>
 						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="username" class="col-sm-2 form-control-label">Full Name</label>
+
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="name" maxlength="12" size="20" value="<?php echo $name; ?>" required><br>
+						</div>
 					</div>			
 
 					<div class="form-group row">
@@ -54,7 +55,14 @@ $regdate = date("Y.m.d");
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="username" maxlength="12" size="20" value="<?php echo $name; ?>" required><br><?php echo $usererror; ?>
 						</div>
-					</div>					
+					</div>
+
+					<div class="form-group row">
+						<label for="inputphone" class="col-sm-2 form-control-label"> Phone:</label>
+						<div class="col-sm-8">
+							<input type="tel" class="form-control" name="usercontact" size="10" value="<?php echo $phone; ?>" required pattern="(\+?\d[- .]*){10,11}$" required> (Format: 0123456789 / 01123456789)
+						</div>
+					</div>			
 
 					<div class="form-group row">
 						<label for="password" class="col-sm-2 form-control-label">Password </label>

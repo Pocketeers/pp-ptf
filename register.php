@@ -1,6 +1,13 @@
 <?php
 //include php external file
 include 'dbcon.php';
+session_start();
+
+//set local timezone
+date_default_timezone_set("Asia/Kuala_Lumpur");
+
+//set input date function as varianle
+$regdate = date("Y.m.d");
 
 //check if user session exist
 if(isset($_SESSION['user'])){
@@ -20,8 +27,10 @@ if(!isset($_POST['email']) && !isset($_POST['username']) && !isset($_POST['passw
 }else{
 
 	//set field as variable
-	$name = $_POST['username'];
+	$name = $_POST['name'];
+	$username = $_POST['username'];
 	$email = $_POST['email'];
+	$phone = $_POST['usercontact'];
 
 	//set sql statement to select all username & email
 	$sql1 = "SELECT username,email FROM user WHERE username = '$_POST[username]' OR email = '$_POST[email]' ";
@@ -61,19 +70,27 @@ if(!isset($_POST['email']) && !isset($_POST['username']) && !isset($_POST['passw
 
 		//set sql statement to insert all field to database table
 		$sql="INSERT INTO user(
-				type,
 				email,
 				username,
 				password,
-				date_created)
-			VALUES('$_POST[type]',
+				date_created,
+				type,
+				name,
+				user_contact)
+			VALUES(
 				'$_POST[email]',
 				'$_POST[username]',
 				'$_POST[password]',
-				'$_POST[regdate]')";
+				'$_POST[regdate]',
+				'$_POST[type]',
+				'$_POST[name]',
+				'$_POST[usercontact]')";
 
 			//check if query run
 			if(mysqli_query($conn, $sql)){
+
+				//set user session
+		      	$_SESSION['user'] = $_POST['username'];
 
 				//redirect to link
 				header("Location: regmsg.php");

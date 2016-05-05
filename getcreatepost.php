@@ -53,7 +53,8 @@ if(!isset($_SESSION['user'])){
 	}else{
 
 	    //display error message
-	    echo "Error: some codes are not correctly placed or one of the code spelling is wrong or does not match, please check back your codes";
+	    echo "No Records found";
 	}
+
 }
 ?>

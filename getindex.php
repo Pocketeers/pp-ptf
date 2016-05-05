@@ -5,10 +5,6 @@ include 'dbcon.php';
 	//check connection
     if($conn){
 
-        $results = "";
-
-        //escape user string input
-        $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
 
         if(!isset($_POST['search']) AND !isset($_POST['jobcat'])){
 
@@ -17,6 +13,9 @@ include 'dbcon.php';
 
         }else{
 
+            //escape user string input
+            $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
+        
             $sql = "SELECT * FROM posts WHERE post_status = 'published' AND work LIKE '%$_POST[search]%' AND jobcat LIKE '%$_POST[jobcat]%' ORDER BY date_posted DESC";
 
         }
