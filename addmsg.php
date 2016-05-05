@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Your post has been saved!</h1>
-<p><b><i><a href="index.php">Back to home page</a></b></p>
+<p><b><i><a href="myads.php">Go to my ads list</a></b></p>
 </body>
 
 <?php

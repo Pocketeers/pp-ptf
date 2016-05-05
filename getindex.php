@@ -5,6 +5,7 @@ include 'dbcon.php';
 	//check connection
     if($conn){
 
+
             //Pagination code 
             //Documentation link below
             //https://www.developphp.com/video/PHP/Pagination-MySQLi-Google-Style-Paged-Results-Tutorial
@@ -25,7 +26,6 @@ include 'dbcon.php';
                 $last = 1;
             }
 
-
             $pagenum = 1;
 
             //get pagenum from URL if any
@@ -40,19 +40,14 @@ include 'dbcon.php';
                 { $pagenum = $last;}
 
             $limit = 'LIMIT ' .($pagenum - 1) * $page_rows.',' .$page_rows;
-
-
-        
-        //escape user string input
        
-            
-
+                
             //Based on search
         if(!isset($_POST['search']) AND !isset($_POST['jobcat']))
         {
 
             //query for grabbing just one page worth of rows by applying limit
-            $sql = "SELECT * FROM posts WHERE post_status = 'published' ORDER BY date_posted DESC $limit";
+            $sql = "SELECT * FROM posts INNER JOIN company ON posts.user_id=company.user_id WHERE post_status = 'published' ORDER BY date_posted DESC $limit";
 
         }
         else
@@ -60,7 +55,7 @@ include 'dbcon.php';
             $_POST['search']=mysqli_real_escape_string($conn, $_POST['search']);
 
              //set sql statement to select all record from "posts" table that matches the input
-            $sql = "SELECT * FROM posts WHERE post_status = 'published' AND work LIKE '%$_POST[search]%' AND jobcat LIKE '%$_POST[jobcat]%' ORDER BY date_posted DESC $limit";
+            $sql = "SELECT * FROM posts INNER JOIN company ON posts.user_id=company.user_id WHERE post_status = 'published' AND work LIKE '%$_POST[search]%' AND jobcat LIKE '%$_POST[jobcat]%' ORDER BY date_posted DESC $limit";
         
         }
 
@@ -146,7 +141,7 @@ include 'dbcon.php';
             //display the records
             echo "<li>".
             "<a class=\"postlink\" href=\"viewpost.php?post_id=".$postinfo['post_id']."\">".
-            "<span class='job-employer'>".$postinfo['employer']."</span>".
+            "<span class='job-employer'>".$postinfo['company_name']."</span>".
             "<span class='job-title'>".$postinfo['work']."</span>".
             //"<span class = 'job-category label label-default'>".$postinfo['jobcat']."</span>".
             "<span class='job-salary'><sup class='currency'>RM</sup>" .$postinfo['salary']." <sub class='salary-rate-type'>/ ".$postinfo['salary_rate']."</sub> </span>" .
