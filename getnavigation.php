@@ -62,7 +62,7 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 
         }else{
 
-            $linkhref = "#";
+            $linkhref = "about.php";
             $linktitle = "ABOUT";
 
             $linkhref1 = "job-post.php";
