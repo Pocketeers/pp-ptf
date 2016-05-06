@@ -1,5 +1,4 @@
 <?php
-include'register.php';
 //include external php file
 include'getnavigation.php';
 ?>

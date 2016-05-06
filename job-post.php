@@ -32,10 +32,12 @@ include'getnavigation.php';
 			</div>
 
 		</div>
+	</div>						
+
 
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<form  action="" name="prereg.php" method="post">
+				<form  action="" name="job-post.php" method="post">
 
 					<div class="form-group row">
 						<label for="email" class="col-sm-2 form-control-label">Email</label>
@@ -84,23 +86,7 @@ include'getnavigation.php';
 						</div>
 					</div>
 
-					<div class="form-group row">
-						<label class="col-sm-2">Register as:</label>
-
-						<div class="col-sm-10">
-							<div class="radio">
-								<label>
-									<input type="radio" name="type" value="employer" required> Employer
-								</label>
-							</div>
-
-							<div class="radio">
-								<label>
-									<input type="radio" name="type" value="employee"> Employee
-								</label>
-							</div>
-						</div>
-					</div>
+					<input type="hidden" name="type" value="employer" required>
 
 					<input type="hidden" name="regdate" value=<?php echo $regdate ?> readonly>
 

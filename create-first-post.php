@@ -2,6 +2,7 @@
 //for navigation bar
 include 'getnavigation.php';
 include 'restrict.php';
+include 'restrict2.php';
 include 'getcreatepost.php';
 
 ?>
