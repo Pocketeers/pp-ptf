@@ -43,25 +43,24 @@ include 'getcreatepost.php';
       <h1>Create Post</h1>
       
       <!-- Form for data input -->
-      <form name="create-post" action="addpost.php" method="post">
+      <form name="create-post" action="preview-post.php" method="post">
 
         <!-- Gets today's date -->			  
         <?php
-        date_default_timezone_set("Asia/Kuala_Lumpur");
         $date = date("Y,m,j H:i:s");
         ?>
         
-        <div class="form-group row">
+         <div class="form-group row">
           <label for="jobtitle" class="col-sm-2 form-control-label">Job Title</label>
           <div class="col-sm-8">
-            <input name="work" class="form-control" type="text" required>
+            <input name="work" class="form-control" type="text" value="<?php echo $_POST['work']; ?>" required>
           </div>
         </div>
         
         <div class="form-group row">
-          <label for="employer" class="col-sm-2 form-control-label">Employer</label>
+          <label for="employer" class="col-sm-2 form-control-label" >Employer</label>
           <div class="col-sm-8">
-           <input name="employer" class="form-control" type="text" required>
+           <input name="employer" class="form-control" type="text" value="<?php echo $_POST['employer']; ?>" required>
          </div>
        </div>
        
@@ -69,7 +68,7 @@ include 'getcreatepost.php';
         <label for="salary" class="col-sm-2 form-control-label">Salary:
           RM</label>
           <div class="col-sm-8">
-            <input name="salary" class="form-control" min="1" type="number" required>
+            <input name="salary" class="form-control" min="1" type="number" value="<?php echo $_POST['salary']; ?>" required>
           </div>
         </div>
 
@@ -77,7 +76,8 @@ include 'getcreatepost.php';
             <label class="col-sm-2">Salary Rate:</label>
             <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="rate">
+            <select class="form-control" name="rate" placeholder="Select State" required>
+            <option value="" disabled selected>Select Rate</option>
               <option value="hour">Per Hour</option>
               <option value="month">Per Month</option>
             </select>
@@ -85,12 +85,59 @@ include 'getcreatepost.php';
         </div>
         
         <div class="form-group row">
-          <label for="address" class="col-sm-2 form-control-label">Address</label>
+          <label for="company_address" class="col-sm-2 form-control-label">Address</label>
+          <div class="col-sm-8">
+           <input name="company_address" class="form-control" type="text" value="<?php echo $_POST['company_address']; ?>" required>
+         </div>
+       </div>
+
+       <div class="form-group row">
+          <label for="city" class="col-sm-2 form-control-label">City</label>
+          <div class="col-sm-8">
+           <input name="city" class="form-control" type="text" value="<?php echo $_POST['city']; ?>" required>
+         </div>
+       </div>
+
+      <div class="form-group row">
+          <label for="state" class="col-sm-2 form-control-label">State</label>
           <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="2000" class="form-control" name="location" required></textarea>
+            <select class="form-control" name="state" required>
+              <option value="" disabled selected>Select State</option>
+              <option value="Kuala Lumpur">Kuala Lumpur</option>
+              <option value="Johor">Johor</option>
+              <option value="Kedah">Kedah</option>
+              <option value="Kelantan">Kelantan</option>
+              <option value="Melaka">Melaka</option>
+              <option value="Negeri Sembilan">Negeri Sembilan</option>
+              <option value="Pahang">Pahang</option>
+              <option value="Penang">Penang</option>
+              <option value="Perak">Perak</option>
+              <option value="Perlis">Perlis</option>
+              <option value="Selangor">Selangor</option>
+              <option value="Sabah">Sabah</option>
+              <option value="Sarawak">Sarawak</option>
+              <option value="Terengganu">Terengganu</option>
+              
+            </select>
           </div>
         </div>
+
+       <div class="form-group row">
+          <label for="postcode" class="col-sm-2 form-control-label">Postcode</label>
+          <div class="col-sm-8">
+           <input name="postcode" class="form-control" type="text" value="<?php echo $_POST['postcode']; ?>" required>
+         </div>
+       </div>
+
+       <div class="form-group row">
+          <label for="country" class="col-sm-2 form-control-label">Country</label>
+          <div class="col-sm-8">
+           <input name="country" class="form-control" type="text" value="Malaysia" readonly>
+         </div>
+       </div>
+
+
 
  <!--editor-->
  <div class="foreditor">
@@ -113,7 +160,7 @@ include 'getcreatepost.php';
       </div>
 
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="scope"></textarea>
+            <textarea rows="7" cols="40" maxlength="3000" class="form-control editable" name="scope" ><?php echo $_POST['scope']; ?></textarea>
             <!-- <div id="trumbowyg-toolbar" name="scope"></div> -->
             <div id="summernote" name="scope"></div>
           </div>
@@ -142,51 +189,67 @@ include 'getcreatepost.php';
               <a data-wysihtml5-command="insertOrderedList">1. List</a>
             </div>
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="addinfo"></textarea>
+            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="addinfo"><?php echo $_POST['addinfo']; ?></textarea>
           </div>
         </div>
       </div>
     </div>
 </div>
 
+<!--editor-->
+ <div class="foreditor">
+  <div class="ewrapper" contentEditable="false">
+    <div class="toolbar">
+    <!-- 
+    <div class="editable" ***important>
+     -->          
+        <div class="form-group row">
+          <label for="company_info" class="col-sm-2 form-control-label">Company info</label>
+          <div class="col-sm-8">
+          <div class="block">
+        <a data-wysihtml5-command="bold" title="CTRL+B">bold</a>
+        <a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
+      
+      
+        <a data-wysihtml5-command="insertUnorderedList">&bull; List</a>
+        <a data-wysihtml5-command="insertOrderedList">1. List</a>
+      
+      </div>
+
+            <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
+            <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="company_info"><?php echo $_POST['company_info']; ?></textarea>
+            <!-- <div id="trumbowyg-toolbar" name="scope"></div> -->
+            <div id="summernote" name="company_info"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
         
         <div class="form-group row">
           <label for="jobcat" class="col-sm-2 form-control-label">Job Category</label>
           <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="jobcat">
+            <select class="form-control" name="jobcat" required>
+              <option value="" disabled selected>Select Job Category</option>
               <option values="Services">Services</option>
               <option values="Food">Food</option>
             </select>
           </div>
-        </div>
+        </div>  
+
         
-        <div class="form-group row">
-          <label for="location" class="col-sm-2 form-control-label">Location Category</label>
-          <div class="col-sm-8">
-            <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="loccat">
-              <option value="Kuala Lumpur">Kuala Lumpur</option>
-              <option value="Selangor">Selangor</option>
-            </select>
-          </div>
-        </div>	
-        
-        
-        <div class="form-group row">
-          <label for="employer" class="col-sm-2 form-control-label">Date  </label>
-          <div class="col-sm-8">
-            <input class="form-control" name="date_posted" type="text" value="<?php echo $date; ?>" readonly>
-          </div>
-        </div>
-        
-        <input name="userid" type="hidden" value="<?php echo $userid; ?>">
+        <input class="form-control" name="date_posted" type="hidden" value="<?php echo $date; ?>" readonly>
+
+        <input name="user_id" type="hidden" value="<?php echo $userid; ?>">
+        <input name="company_id" type="hidden" value="<?php echo $companyid; ?>">
         
         <div class="form-group row">
          <div class="col-sm-offset-2 col-sm-10">
           <a class="cancelbtn" href="index.php">CANCEL</a>
           <form action="demo_form.asp" method="get">
-           <input class="btn btn-primary" type="submit" name="submitBtn" value="POST">
+           <input class="btn btn-primary" type="submit" name="prevBtn" value="PREVIEW">
            <input class="btn btn-secondary" type="reset" name="resetBtn" value="RESET">
          </form>
        </div>

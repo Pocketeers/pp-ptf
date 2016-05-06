@@ -37,7 +37,7 @@ include'register.php';
 						<label for="email" class="col-sm-2 form-control-label">Email</label>
 
 						<div class="col-sm-8">
-							<input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"><br><?php echo $emailerror; ?>
+							<input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"><br><span style="color:red;"><?php echo $emailerror; ?></span>
 						</div>
 					</div>
 
@@ -53,7 +53,7 @@ include'register.php';
 						<label for="username" class="col-sm-2 form-control-label">Username</label>
 
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="username" maxlength="12" size="20" value="<?php echo $name; ?>" required><br><?php echo $usererror; ?>
+							<input type="text" class="form-control" name="username" maxlength="12" size="20" value="<?php echo $name; ?>" required><br><span style="color:red;"><?php echo $usererror; ?></span>
 						</div>
 					</div>
 
@@ -76,7 +76,7 @@ include'register.php';
 						<label for="password" class="col-sm-2 form-control-label">Confirm Password </label>
 
 						<div class="col-sm-8">				
-							<input type="password" name="confirmpwd" class="form-control" minlength="6" size="20" required><br><?php echo $passerror; ?>
+							<input type="password" name="confirmpwd" class="form-control" minlength="6" size="20" required><br><span style="color:red;"><?php echo $passerror; ?></span>
 						</div>
 					</div>					
 
