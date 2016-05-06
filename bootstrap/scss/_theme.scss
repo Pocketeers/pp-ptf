@@ -161,3 +161,22 @@ footer
 #pagination_controls{font-size:18px; text-align:center;}
 #pagination_controls > a{ color:#8D2CFF;}
 #pagination_controls > a:visited{color:#8D2CFF;}
+
+// steps
+.steps ul
+{
+	list-style: none;
+	padding: 0;
+
+	li
+	{
+		display: inline-block;
+		margin-right: 10px;
+		color: rgba(0,0,0,0.5);
+
+		&.active-step
+		{
+			color: purple;
+		}
+	}
+}
