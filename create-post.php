@@ -225,7 +225,7 @@ var editors = [];
     e.on("showSource", function() {
       alert(e.getValue(true));
     });
-    
+ 
   });
   
 </script>
