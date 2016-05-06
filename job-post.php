@@ -32,7 +32,7 @@ include'getnavigation.php';
 			</div>
 
 		</div>
-	</div>
+
 
 
 		<div class="row">
@@ -103,11 +103,12 @@ include'getnavigation.php';
 
 
 	</div>
-	<?php
-  //include scripts php file
-  include'_scripts.php';
-  include'_footer.php';
-  ?>
+
+<?php
+//include scripts php file
+include'_scripts.php';
+include'_footer.php';
+?>
 
 </body>
 </html>
