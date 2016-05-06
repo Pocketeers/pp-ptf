@@ -58,19 +58,12 @@ include'register.php';
 	</div>					
 
 	<div class="form-group row">
-		<label class="col-sm-2">Register as:</label>
 
 		<div class="col-sm-10">
 			<div class="radio">
 				<label>
-					<input type="radio" name="type" value="employer" required> Employer
+					<input type="hidden" name="type" value="employer" required>
 				</label>	
-			</div>
-
-			<div class="radio">
-				<label>   					
-					<input type="radio" name="type" value="employee"> Employee
-				</label>
 			</div>
 		</div>
 	</div>
