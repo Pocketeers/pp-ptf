@@ -35,30 +35,30 @@ include'getnavigation.php';
 
 		<a href="/">Back to all jobs</a>
 		<div id="job-ad-display">
-			<!-- job header -->
 			<div class="row">
 				<div class="col-md-9">
+
 					<h1 class="job-title">
 						<?php echo $postinfo['work']; ?>
 					</h1>
-
-					<!--date("d M", strtotime($fromMYSQL))
-					$fromMYSQL = $postinfo['date_posted']; -->
 
 					<h2 class="job-employer">
 						<?php echo $postinfo['employer'];?>
 					</h2>
 
 					<div class="job-location">
-						<?php echo $postinfo['location']; ?>
+						<?php echo $postinfo['company_address']; ?>
 					</div>
 
-					<div class="job-locationcat">
-						<?php echo $postinfo['loccat']; ?>
+					<div class="job-city">
+						<?php echo $postinfo['city']; ?>
 					</div>
 
-					<small class="job-publish-date">
-						Posted on
+					<div class="job-state">
+						<?php echo $postinfo['state']; ?>
+					</div>
+
+					<small class="job-publish-date">Posted on
 						<?php  $fromMYSQL = $postinfo['date_posted'];
 						echo date("j F, Y", strtotime($fromMYSQL)); ?>
 					</small>
@@ -75,33 +75,75 @@ include'getnavigation.php';
 							<div class="job-salary">
 								<?php echo "<sup class='currency'>RM</sup>" .$postinfo['salary']." <sub class='salary-rate-type'>/ ".$postinfo['salary_rate']."</sub>" ?>
 							</div>
+							<br>
 							<?php
 							echo "<br>".$apply;
 							?>
 						</div>
 					</div>
 					<!-- /card -->
+
 				</div>
 			</div>
-			<!-- end job header -->
 
 			<!-- job content -->
 			<hr>
 			<div class="row">
 				<div class="col-md-8">
-					<div class="job-scope">
-						<?php echo $postinfo['scope']; ?>
+					<!-- job details -->
+					<div class="job-details m-b-3">
+						<div class="job-scope m-b-2">
+							<?php echo $postinfo['scope']; ?>
+						</div>
+
+						<div class="job-info m-b-2">
+							<h5>Additional information</h5>
+							<?php echo $postinfo['addinfo']; ?>
+						</div>
 					</div>
-					<div class="job-info">
-						<?php echo $postinfo['addinfo']; ?>
+
+					<!-- end job details -->
+
+
+
+					<!-- company details -->
+					<div class="company-info m-b-3">
+						<h4>About <?php echo $postinfo['employer'];?></h4>
+						<div class="job-company m-b-1">
+							<?php echo $postinfo['company_info']; ?>
+						</div>
+
+						<div class="company-address m-b-1">
+							<h5>Address</h5>
+							<div class="job-location">
+								<?php echo $postinfo['company_address']; ?>
+							</div>
+
+							<div class="job-city">
+								<?php echo $postinfo['city']; ?>
+							</div>
+
+							<div class="job-state">
+								<?php echo $postinfo['state']; ?>
+							</div>
+
+							<div class="job-postcode">
+								<?php echo $postinfo['postcode']; ?>
+							</div>
+
+							<div class="job-city">
+								<?php echo $postinfo['country']; ?>
+							</div>
+						</div>
 					</div>
+					<!-- end company details -->
+
 				</div>
 			</div>
-
 			<!-- end job content -->
-
 		</div>
-	</div>
+	</div> <!-- /.container -->
+
 
 
 
