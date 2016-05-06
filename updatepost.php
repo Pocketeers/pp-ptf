@@ -34,7 +34,7 @@ include'getupdatepost.php';
 			   
 <!-- echo $_GET['id'] is for displaying all the selected value with selected id only-->
 	               <input type="hidden" name="post_id" value="<?php echo $_GET['post_id']; ?>"/>
-                 <input type="hidden" name="company_id" value="<?php echo $_GET['company_id']; ?>"/>
+                 <input type="hidden" name="company_id" value="<?php echo  $company_id['company_id']; ?>"/>
 				   </div>
 				</div>
 				
@@ -48,7 +48,7 @@ include'getupdatepost.php';
                 <div class="form-group row">
                   <label for="employer" class="col-sm-2 form-control-label">Employer</label>
 				    <div class="col-sm-8">
-                      <input required name="employer" class="form-control" type="text" value="<?php echo $postinfo['company_name']; ?>">
+                      <input required name="company_name" class="form-control" type="text" value="<?php echo $postinfo['company_name']; ?>">
 					</div>
 				</div>
         

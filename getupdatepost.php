@@ -33,6 +33,19 @@ if(!isset($_SESSION['user']) OR ($type == "employee")){
 if(!isset($_POST['submitBtn'])){
 
     //set sql statement to select all record from "posts" table with user session
+    $get_id = "SELECT company_id FROM posts WHERE post_id= $_GET[post_id]";
+
+    if($check_id=mysqli_query($conn, $get_id)){
+
+        $company_id=mysqli_fetch_array($check_id);
+
+    }else{
+
+        //display echo error
+        echo "Error: ". "<br>" . mysqli_error($conn);
+    }
+
+    //set sql statement to select all record from "posts" table with user session
     $sql = "SELECT * FROM posts INNER JOIN company ON company.company_id=posts.company_id WHERE post_id= $_GET[post_id]";
 
         //check if query run
