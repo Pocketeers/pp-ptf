@@ -1,7 +1,6 @@
 <?php
 include'getnavigation.php';
 include'restrict.php';
-include 'restrict2.php';
 
 $fromMYSQL = $_POST['date_posted'];
 ?>
@@ -143,7 +142,7 @@ $fromMYSQL = $_POST['date_posted'];
         </div>
       </div>
     </div>
-    <form name="create-first-post" action="create-first-post.php" method="post">
+    <form name="create-first-post" action="create-post.php" method="post">
       <input type="hidden" name="work" value="<?php echo $_POST['work']; ?>"/>
       <input type="hidden" name="salary" value="<?php echo $_POST['salary']; ?>"/>
       <input type="hidden" name="scope" value="<?php echo $_POST['scope']; ?>"/>
@@ -195,7 +194,6 @@ $fromMYSQL = $_POST['date_posted'];
   </div>
 </div>
 </div>
-
 
 <?php
 //include scripts php file

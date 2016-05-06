@@ -13,12 +13,11 @@ $results1 = mysqli_query($conn, $sql1);
 if(mysqli_num_rows($results1) > 0){
 
     //loop to fetch all "type" record
-    while($userinfo = mysqli_fetch_array($results1)){
+    $userinfo = mysqli_fetch_array($results1);
 
-        //set as variable
-        $type = $userinfo['type'];
+    //set as variable
+    $type = $userinfo['type'];
 
-        }
 }
 
 //check if user session exist
@@ -44,11 +43,10 @@ if(!isset($_SESSION['user'])){
 	if(mysqli_num_rows($results) > 0){
 
 	    //loop to fetch record
-	    while($userinfo=mysqli_fetch_array($results)){
+	    $userinfo=mysqli_fetch_array($results);
 
 	        //set record as variable
 	        $userid =  $userinfo['user_id'];
-	    }
 
 	}else{
 

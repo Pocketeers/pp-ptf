@@ -34,6 +34,7 @@ include'getupdatepost.php';
 			   
 <!-- echo $_GET['id'] is for displaying all the selected value with selected id only-->
 	               <input type="hidden" name="post_id" value="<?php echo $_GET['post_id']; ?>"/>
+                 <input type="hidden" name="company_id" value="<?php echo $_GET['company_id']; ?>"/>
 				   </div>
 				</div>
 				
@@ -47,7 +48,7 @@ include'getupdatepost.php';
                 <div class="form-group row">
                   <label for="employer" class="col-sm-2 form-control-label">Employer</label>
 				    <div class="col-sm-8">
-                      <input required name="employer" class="form-control" type="text" value="<?php echo $postinfo['employer']; ?>">
+                      <input required name="employer" class="form-control" type="text" value="<?php echo $postinfo['company_name']; ?>">
 					</div>
 				</div>
         
@@ -63,7 +64,7 @@ include'getupdatepost.php';
             <label class="col-sm-2">Salary Rate:</label>
             <div class="col-sm-8">
             <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-            <select class="form-control" name="loccat">
+            <select class="form-control" name="salary_rate">
             <option value="<?php echo $postinfo['salary_rate']; ?>">Per <?php echo $postinfo['salary_rate']; ?></option>
               <option value="hour">Per hour</option>
               <option value="month">Per month</option>
@@ -74,10 +75,47 @@ include'getupdatepost.php';
                 <div class="form-group row">
                   <label for="address" class="col-sm-2 form-control-label">Address</label>
 				    <div class="col-sm-8">
-            <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-                    <textarea required rows="7" cols="40" maxlength="2000" class="form-control" name="location"><?php echo $postinfo['location']; ?></textarea>
+                    <input required type="text" maxlength="2000" class="form-control" name="company_address" value="<?php echo $postinfo['company_address']; ?>"></input>
 					</div>
 				</div>
+
+        <div class="form-group row">
+          <label for="city" class="col-sm-2 form-control-label">City</label>
+          <div class="col-sm-8">
+           <input name="city" class="form-control" type="text" value="<?php echo $postinfo['city']; ?>" required>
+         </div>
+       </div>
+
+       <div class="form-group row">
+            <label class="col-sm-2">State:</label>
+            <div class="col-sm-8">
+            <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
+            <select class="form-control" name="state">
+            <option value="<?php echo $postinfo['state']; ?>"><?php echo $postinfo['state']; ?></option>
+              <option value="Kuala Lumpur">Kuala Lumpur</option>
+              <option value="Johor">Johor</option>
+              <option value="Kedah">Kedah</option>
+              <option value="Kelantan">Kelantan</option>
+              <option value="Melaka">Melaka</option>
+              <option value="Negeri Sembilan">Negeri Sembilan</option>
+              <option value="Pahang">Pahang</option>
+              <option value="Penang">Penang</option>
+              <option value="Perak">Perak</option>
+              <option value="Perlis">Perlis</option>
+              <option value="Selangor">Selangor</option>
+              <option value="Sabah">Sabah</option>
+              <option value="Sarawak">Sarawak</option>
+              <option value="Terengganu">Terengganu</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="country" class="col-sm-2 form-control-label">Country</label>
+          <div class="col-sm-8">
+           <input name="country" class="form-control" type="text" value="Malaysia" readonly>
+         </div>
+       </div>
 
        <!--editor-->
   <div class="foreditor">
@@ -131,6 +169,33 @@ include'getupdatepost.php';
     </div>
   </div>
 
+  <!--editor-->
+  <div class="foreditor">
+    <div class="ewrapper" contentEditable="false">
+      <div class="toolbar">
+    <!-- 
+    toolbar
+    <div class="editable" ***important>
+    -->   
+        <div class="form-group row">
+          <label for="company_info" class="col-sm-2 form-control-label">Company Info</label>
+          <div class="col-sm-8">
+            <div class="block">
+            <a data-wysihtml5-command="bold" title="CTRL+B">bold</a>
+            <a data-wysihtml5-command="italic" title="CTRL+I">italic</a>
+
+            <a data-wysihtml5-command="insertUnorderedList">&bull; List</a>
+            <a data-wysihtml5-command="insertOrderedList">1. List</a>
+            </div>
+
+       <textarea rows="7" cols="40" maxlength="2000" class="form-control editable" name="company_info"><?php echo $postinfo['company_info']; ?>
+      </textarea>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+
   <div class="form-group row">
     <label for="jobcat" class="col-sm-2 form-control-label">Job Category</label>
     <div class="col-sm-8">
@@ -142,25 +207,6 @@ include'getupdatepost.php';
      </select>
    </div>       
  </div>
-	   
- <div class="form-group row">
-  <label for="location" class="col-sm-2 form-control-label">Location Category</label>
-  <div class="col-sm-8">
-    <!-- setting text area box size rows= height, cols= width, maxlength= char limit  -->
-    <select class="form-control" name="loccat">
-     <option value="<?php echo $postinfo['loccat']; ?>"><?php echo $postinfo['loccat']; ?></option>
-     <option value="Kuala Lumpur">Kuala Lumpur</option>
-     <option value="Selangor">Selangor</option>
-   </select>
- </div>
-</div>
-
-                <div class="form-group row">
-                  <label for="employer" class="col-sm-2 form-control-label">Date Post </label>
-				    <div class="col-sm-8">
-                      <input class="form-control" name="date_posted" type="text" value="<?php echo $postinfo['date_posted']; ?>" readonly>
-				    </div>
-			    </div>
         
 		
 		        <div class="form-group row">

@@ -22,7 +22,7 @@ session_start();
     }
     
     //set sql statement to select all record from "posts" table with selected "id"
-    $sql = "SELECT * FROM posts WHERE post_id= $_GET[post_id]";
+    $sql = "SELECT * FROM posts INNER JOIN company ON company.company_id=posts.company_id WHERE post_id= $_GET[post_id]";
 
     //check if query can run
     if($result=mysqli_query($conn, $sql)){
