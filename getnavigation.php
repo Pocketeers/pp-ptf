@@ -33,12 +33,12 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 
                         //set link
                         $href = "myads.php";
-                        
+
                         //set link title
                         $title = "MY ADS";
 
                         $href1 = "create-post.php";
-                        $title1 = "CREATE NEW POST";
+                        $title1 = "CREATE A JOB AD";
 
                     }else{
 

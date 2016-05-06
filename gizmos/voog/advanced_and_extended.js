@@ -664,7 +664,7 @@ var wysihtml5ParserRules = {
     // TODO: should be extended to stricter ruleset, as current set will probably not cover all Office bizarreness
     var msOfficeRules = wysihtml5.lang.object(universalRules).clone(true);
     msOfficeRules.classes = {};
-
+/*
     window.wysihtml5ParserPasteRulesets = [
         {
             condition: /<font face="Times New Roman"|class="?Mso|style="[^"]*\bmso-|style='[^'']*\bmso-|w:WordDocument|class="OutlineElement|id="?docs\-internal\-guid\-/i,
@@ -676,5 +676,11 @@ var wysihtml5ParserRules = {
             set: universalRules
         }
     ];
+*/
 
+    window.wysihtml5ParserPasteRulesets = [
+        {
+            set: {}
+        }
+];
 })();
