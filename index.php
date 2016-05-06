@@ -6,7 +6,7 @@ include'getnavigation.php';
 <html>
 
 <head>
-  <title>Part-time jobs at workwork (and some full-time as well)</title>
+  <title>workwork</title>
   <?php
   //include head php file
   include'_head.php';
@@ -40,15 +40,15 @@ include'getnavigation.php';
                 <input type="text" name="search" class="form-control"  placeholder="Search">
               </div>
 
-              <div class="form-group">  
+              <div class="form-group">
                 <select class="form-control" name="jobcat">
                   <option value="">Choose a Category</option>
                   <option value="services">Services</option>
                   <option value="food">Food</option>
-                </select> 
+                </select>
               </div>
 
-              
+
 
               <button type="submit" class="btn btn-primary">Search</button>
 

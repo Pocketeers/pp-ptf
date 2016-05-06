@@ -9,7 +9,7 @@ $fromMYSQL = $_POST['date_posted'];
 <html lang="en">
 
 <head>
-  <Title>View Post</Title>
+  <Title>workwork</Title>
 
   <?php
   //include head php file
@@ -24,7 +24,20 @@ $fromMYSQL = $_POST['date_posted'];
   <?php
   include '_navigation.php';
   ?>
+<div class="container">
+  <div class="steps">
+    <ul>
+      <li>1. Create an account</li>
+      <li class="active-step">2. Post job ad</li>
+      <li>3. Publish &amp; share</li>
+    </ul>
+  </div>
 
+
+
+  <h1>Step 1: Register</h1>
+  <hr>
+</div>
 
   <div class="container">
     <div id="job-ad-display">

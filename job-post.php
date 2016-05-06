@@ -5,7 +5,7 @@ include'getnavigation.php';
 ?>
 <html>
 <head>
-	<title>Part-time jobs at workwork (and some full-time as well)</title>
+	<title>workwork</title>
 	<?php
 	//include head php file
 	include'_head.php';
@@ -32,7 +32,7 @@ include'getnavigation.php';
 			</div>
 
 		</div>
-	</div>						
+	</div>
 
 
 		<div class="row">

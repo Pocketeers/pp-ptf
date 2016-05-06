@@ -9,7 +9,7 @@ include'getnavigation.php';
 
 <head>
 
-	<Title>View Post</Title>
+	<Title>workwork</Title>
 
 
 	<?php

@@ -4,7 +4,7 @@ include'getnavigation.php';
 ?>
 <html>
 <head>
-  <title>Part-time jobs at workwork (and some full-time as well)</title>
+  <title>workwork</title>
   <?php
   //include head php file
   include'_head.php';
@@ -20,7 +20,7 @@ include'getnavigation.php';
       <ul>
         <li class="active-step">1. Create an account</li>
         <li>2. Post job ad</li>
-        <li>3. Share</li>
+        <li>3. Publish &amp; share</li>
       </ul>
     </div>
 

@@ -8,7 +8,7 @@ include 'getcreatepost.php';
 ?>
 <html>
 <head>
-  <title>Create First Job Ad</title>
+  <title>workwork</title>
 
   <?php
   //include head php file
