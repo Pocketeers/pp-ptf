@@ -1,8 +1,7 @@
-<nav class="navbar ww-navbar" 
+<nav class="navbar ww-navbar"
      >
     <a class="navbar-brand" href="/">
-       WORK
-       <span>WORK</span>
+       WORK<span>WORK</span>
     </a>
     <ul class="nav navbar-nav">
       <li class="nav-item">

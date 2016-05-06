@@ -30,8 +30,8 @@ include'getnavigation.php';
     <hr>
     <h2 class="text-xs-center">Nice! Your registration is a beautiful thing.</h2>
     <p class="text-xs-center">
-      <a href="create-first-post.php" class="btn btn-default">Let's create Your First Post</a>
-    </p>    
+      <a href="create-first-post.php" class="btn btn-primary">Let's create your first job ad</a>
+    </p>
   </div>
   <?php
   //include scripts php file
